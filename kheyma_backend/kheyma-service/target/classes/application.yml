@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: kheyma-service
+  
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/kheyma_db
+      auto-index-creation: true
+
+server:
+  port: 8081
+  # context-path removed - controllers already have /api prefix
+
+# Eureka Client Configuration
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+
+# JWT Configuration
+jwt:
+  secret: 5Jf8Km3Lp9Nq2Rs4Tu6Vw8Xz0Ab1Cd3Ef5Gh7Ij9Kl1Mn3Op5Qr7St9Uv1Wx3Yz
+  expiration: 86400000  # 24 hours in milliseconds
+
+# Logging
+logging:
+  level:
+    com.kheyma: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Docker Profile
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  data:
+    mongodb:
+      uri: mongodb://admin:admin123@mongodb:27017/kheyma_db?authSource=admin
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/

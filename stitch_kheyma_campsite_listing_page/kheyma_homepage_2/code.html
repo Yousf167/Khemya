@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kheyma - Discover the Wild Side of Egypt</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2e1e",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111812] dark:text-white font-display overflow-x-hidden antialiased">
+<div class="relative flex flex-col min-h-screen w-full">
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-[#f0f4f1] dark:border-[#2a3c2e] bg-surface-light dark:bg-background-dark px-6 py-3 lg:px-20">
+<div class="flex items-center gap-4 text-[#111812] dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">camping</span>
+</div>
+<h2 class="text-xl font-bold leading-tight tracking-[-0.015em]">Kheyma</h2>
+</div>
+<div class="hidden lg:flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Destinations</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Activities</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About Us</a>
+</nav>
+<div class="flex gap-2">
+<button class="flex h-10 items-center justify-center rounded-lg px-4 bg-transparent hover:bg-black/5 dark:hover:bg-white/10 text-sm font-bold">
+                        Log In
+                    </button>
+<button class="flex h-10 items-center justify-center rounded-lg px-6 bg-primary text-[#111812] text-sm font-bold hover:bg-primary/90 transition-colors shadow-sm">
+                        Sign Up
+                    </button>
+</div>
+</div>
+<button class="lg:hidden p-2 text-[#111812] dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="flex-grow">
+<section class="relative px-4 py-6 lg:px-20 lg:py-10">
+<div class="relative flex min-h-[560px] flex-col items-center justify-center gap-8 rounded-2xl overflow-hidden bg-cover bg-center p-6 text-center" data-alt="Starry night sky over a desert landscape with silhouettes of mountains" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuDqQPLMUHfCzioPKuUKZqGVSfOy36J2Qar8QnY_L0dX5Rq_gqzAXUpDo1y_qaUu7j33PPienp5-53sY2siIDyHswITbNAvtaye_DNpheiVvBRaOdbBiaLE-PBudAMpnUVQvqGxz-Xi_vANC7siqRjt-Dhgj7NkwM3-cBLoHQOWaKRLJSAybxSZtYUG6bBf_ZqVzYUlQUg-K4lkKFzz9NYoiKKEEfLbfvkUE0asQow90sYZ7c7t-ZGfZmnDNmsJbh4KHpp6Oy6GpCms");'>
+<div class="flex flex-col gap-4 max-w-3xl z-10">
+<h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] md:text-6xl drop-shadow-sm">
+                            Discover the Wild Side of Egypt
+                        </h1>
+<h2 class="text-white/90 text-lg font-medium md:text-xl drop-shadow-sm max-w-2xl mx-auto">
+                            From the White Desert to the Red Sea—find your perfect campsite today.
+                        </h2>
+</div>
+<div class="w-full max-w-4xl z-10 mt-4">
+<div class="flex flex-col md:flex-row bg-white dark:bg-surface-dark rounded-xl p-2 shadow-xl border border-gray-100 dark:border-gray-800 gap-2 md:gap-0">
+<div class="flex-1 relative flex items-center px-4 py-3 md:border-r border-gray-100 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-400 mr-3">location_on</span>
+<div class="flex flex-col w-full">
+<label class="text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Location</label>
+<input class="w-full p-0 border-none text-sm font-medium text-gray-900 dark:text-white placeholder-gray-400 focus:ring-0 bg-transparent h-6" placeholder="Where do you want to camp?" type="text"/>
+</div>
+</div>
+<div class="flex-1 relative flex items-center px-4 py-3 md:border-r border-gray-100 dark:border-gray-700">
+<span class="material-symbols-outlined text-gray-400 mr-3">calendar_today</span>
+<div class="flex flex-col w-full">
+<label class="text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Dates</label>
+<input class="w-full p-0 border-none text-sm font-medium text-gray-900 dark:text-white placeholder-gray-400 focus:ring-0 bg-transparent h-6" placeholder="Add dates" type="text"/>
+</div>
+</div>
+<div class="flex-1 relative flex items-center px-4 py-3">
+<span class="material-symbols-outlined text-gray-400 mr-3">group</span>
+<div class="flex flex-col w-full">
+<label class="text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Guests</label>
+<input class="w-full p-0 border-none text-sm font-medium text-gray-900 dark:text-white placeholder-gray-400 focus:ring-0 bg-transparent h-6" placeholder="Add guests" type="text"/>
+</div>
+</div>
+<div class="p-1">
+<button class="w-full md:w-auto h-full min-h-[48px] px-8 bg-primary hover:bg-primary/90 text-[#111812] rounded-lg font-bold flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined">search</span>
+<span>Search</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 lg:px-20 py-8">
+<div class="max-w-[1200px] mx-auto">
+<h2 class="text-[#111812] dark:text-white text-2xl font-bold mb-6">Browse by Category</h2>
+<div class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide">
+<button class="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#111812] dark:bg-white text-white dark:text-[#111812]">
+<span class="text-sm font-bold">All</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-surface-dark border border-[#e5e7eb] dark:border-[#2a3c2e] hover:border-primary transition-colors group">
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary text-[20px]">landscape</span>
+<span class="text-sm font-medium text-[#111812] dark:text-white">Desert</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-surface-dark border border-[#e5e7eb] dark:border-[#2a3c2e] hover:border-primary transition-colors group">
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary text-[20px]">beach_access</span>
+<span class="text-sm font-medium text-[#111812] dark:text-white">Beach</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-surface-dark border border-[#e5e7eb] dark:border-[#2a3c2e] hover:border-primary transition-colors group">
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary text-[20px]">eco</span>
+<span class="text-sm font-medium text-[#111812] dark:text-white">Eco-Lodge</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-surface-dark border border-[#e5e7eb] dark:border-[#2a3c2e] hover:border-primary transition-colors group">
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary text-[20px]">diamond</span>
+<span class="text-sm font-medium text-[#111812] dark:text-white">Glamping</span>
+</button>
+<button class="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-light dark:bg-surface-dark border border-[#e5e7eb] dark:border-[#2a3c2e] hover:border-primary transition-colors group">
+<span class="material-symbols-outlined text-gray-500 group-hover:text-primary text-[20px]">hiking</span>
+<span class="text-sm font-medium text-[#111812] dark:text-white">Mountain</span>
+</button>
+</div>
+</div>
+</section>
+<section class="px-6 lg:px-20 py-8 bg-white dark:bg-transparent">
+<div class="max-w-[1200px] mx-auto">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-[#111812] dark:text-white text-2xl font-bold">Top Rated Campsites this Month</h2>
+<a class="text-sm font-bold text-[#111812] dark:text-white hover:text-primary underline decoration-2 decoration-primary/50 hover:decoration-primary underline-offset-4" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="group flex flex-col gap-3 cursor-pointer">
+<div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+<img alt="White tents in a desert landscape under blue sky" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="White tents in a desert landscape under blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABJ-WgZxCPM-8Bw5YZ4e_ucruNsS8Bj2BfX5WInqrmkLgmhuE5OGXnx_e0oQvJWAd2bmP2FNkz7rAQTuj9zVpodbpgte_Ko_h6jN2_f7_qzXuug48Um0_lchm6DSb_F4Y-_lI3WiF00SCbBGtKXmptrnx42mNjv28lgaN0V-xfkPAywJPOqJ7hZTqP_f3QQQKqzOug2OrYFru5fSTy9k2ySXtOP82UM4MTxghLyl-OiKU7DPp_-ynVIxGefYU2QKigEpuSJ84b24g"/>
+<button class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white text-gray-700 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[20px] block">favorite</span>
+</button>
+<div class="absolute top-3 left-3 px-2 py-1 bg-white/90 rounded-md">
+<p class="text-xs font-bold text-gray-900">Superhost</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-[#111812] dark:text-white truncate">White Desert Camp</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px] fill-current">star</span>
+<span class="text-sm font-medium">4.9</span>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Farafra, Egypt</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-base font-bold text-[#111812] dark:text-white">$50</span>
+<span class="text-sm text-gray-500 dark:text-gray-400">/ night</span>
+</div>
+</div>
+</div>
+<div class="group flex flex-col gap-3 cursor-pointer">
+<div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+<img alt="Camping tent near a forest and mountains" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Camping tent near a forest and mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_swRydJXU0YZooaivaA18y9I8AQG2gd3v_cibTWxKkkUBi-xQcNv8PW4v4r5w7tyx2qEeeq5le86cDfnBZs-GZFonenn9NRez26U0GuW-iDKVtgaAIX-sORGtN2PWco6dgj1Yi3g0FxsvmBZfWyQOdYMlEMhQ3fdYzDoei_2l2-eSd6ZnhFlS12QqbJhdgC5VL86zqvK9-GHKHc276ClFu9jk6wlgPp0xEeXEYV7MuXdPuKHuNtyDLz2E5OsEzyoxbbw8_xjtiIY"/>
+<button class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white text-gray-700 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[20px] block">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-[#111812] dark:text-white truncate">Siwa Oasis Retreat</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px] fill-current">star</span>
+<span class="text-sm font-medium">4.8</span>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Siwa, Egypt</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-base font-bold text-[#111812] dark:text-white">$65</span>
+<span class="text-sm text-gray-500 dark:text-gray-400">/ night</span>
+</div>
+</div>
+</div>
+<div class="group flex flex-col gap-3 cursor-pointer">
+<div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+<img alt="Cozy tent interior with pillows and rugs" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Cozy tent interior with pillows and rugs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYI0V-7xyVi0hPv3Kliyxq8_pojI5lDGbNsOiSGF4BSkRb284ScPLP5Bhh0O0bi5_hI8zScbB0ixIRfL7pSHF--Pn_jVQI83hjSTw4dBytIiBpupC1grIXlc2Gvv0Hm8axxsKoY_zA9Z3r8IKDHdzSzPUXZiTAztrh3OjCJfTzM1LUGsyB0H5CtvjBWbiRpzR0f-aFhXh5XZa5x8KJYU9x4N3ER_t1gvcfGLlNW1ZM1aCYee0h9P7tM-ZmYsTou4-VMSaD9kpcceA"/>
+<button class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white text-gray-700 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[20px] block">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-[#111812] dark:text-white truncate">Red Sea Eco-Lodge</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px] fill-current">star</span>
+<span class="text-sm font-medium">4.7</span>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Marsa Alam, Egypt</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-base font-bold text-[#111812] dark:text-white">$85</span>
+<span class="text-sm text-gray-500 dark:text-gray-400">/ night</span>
+</div>
+</div>
+</div>
+<div class="group flex flex-col gap-3 cursor-pointer">
+<div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+<img alt="Night sky view from inside a tent" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Night sky view from inside a tent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCudjwBo-L_VXUydc1DVmgcxJg1HeOmVZdomnSJj09oTNzYNcL5SzjDQ1kmY7NmY6ap5566nBe3Fg1XjqK-Q9PWpRFXipxH2v9sArDFT6cPpJjCQ8WfvsnxOpxTT5BynyI70-4hyF4rxpDOPqj1kKA4WjGxEcgGq2KIRTSAlo9llQcx9vSXKlZp1y2349qdmRYCa0oeKJeyr_aqB37zVB3kBylYWbn-bWzM0ML6PB1fEDhs_6_iYchwYdfWOkZ5MkF2s_ho9xcx7cY"/>
+<button class="absolute top-3 right-3 p-2 bg-white/90 rounded-full hover:bg-white text-gray-700 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[20px] block">favorite</span>
+</button>
+<div class="absolute top-3 left-3 px-2 py-1 bg-primary text-[#111812] rounded-md">
+<p class="text-xs font-bold">New</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<h3 class="font-bold text-[#111812] dark:text-white truncate">Fayoum Glamping</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[16px] fill-current">star</span>
+<span class="text-sm font-medium">5.0</span>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400">Fayoum, Egypt</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-base font-bold text-[#111812] dark:text-white">$120</span>
+<span class="text-sm text-gray-500 dark:text-gray-400">/ night</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 lg:px-20 py-16 bg-surface-light dark:bg-surface-dark my-10 border-y border-[#f0f4f1] dark:border-[#2a3c2e]">
+<div class="max-w-[1200px] mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4 text-[#111812] dark:text-white">Why Choose Kheyma?</h2>
+<p class="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">We connect you with the most authentic, safe, and breathtaking camping experiences across Egypt.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col items-center text-center p-6">
+<div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined text-4xl">verified_user</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-[#111812] dark:text-white">Verified Hosts</h3>
+<p class="text-gray-500 dark:text-gray-400 leading-relaxed">Every campsite is personally visited and verified by our team to ensure safety and quality.</p>
+</div>
+<div class="flex flex-col items-center text-center p-6">
+<div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined text-4xl">payments</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-[#111812] dark:text-white">Secure Payments</h3>
+<p class="text-gray-500 dark:text-gray-400 leading-relaxed">Book with confidence using our encrypted payment system. No hidden fees on arrival.</p>
+</div>
+<div class="flex flex-col items-center text-center p-6">
+<div class="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined text-4xl">support_agent</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-[#111812] dark:text-white">24/7 Support</h3>
+<p class="text-gray-500 dark:text-gray-400 leading-relaxed">From booking to check-out, our local support team is here to help you anytime.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 lg:px-20 py-16">
+<div class="max-w-4xl mx-auto bg-background-dark dark:bg-surface-dark border border-transparent dark:border-[#2a3c2e] rounded-2xl p-8 md:p-12 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 dark:bg-white/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div class="text-center md:text-left">
+<h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Join the Adventure</h2>
+<p class="text-gray-300">Get the latest campsite drops and exclusive offers directly to your inbox.</p>
+</div>
+<div class="w-full md:w-auto flex-1 max-w-md">
+<div class="flex gap-2">
+<input class="w-full px-4 py-3 rounded-lg border-0 bg-white/10 text-white placeholder-gray-400 focus:ring-2 focus:ring-primary" placeholder="Enter your email" type="email"/>
+<button class="px-6 py-3 bg-primary text-[#111812] font-bold rounded-lg whitespace-nowrap hover:brightness-110 transition-all">
+                                    Subscribe
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-light dark:bg-background-dark border-t border-[#f0f4f1] dark:border-[#2a3c2e] pt-16 pb-8 px-6 lg:px-20">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 text-[#111812] dark:text-white">
+<span class="material-symbols-outlined text-primary text-3xl">camping</span>
+<h2 class="text-xl font-bold">Kheyma</h2>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                        Connecting nature lovers with the most unique camping experiences in Egypt.
+                    </p>
+<div class="flex gap-4 mt-2">
+<a class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="font-bold text-[#111812] dark:text-white">Explore</h3>
+<div class="flex flex-col gap-2">
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Destinations</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Activities</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Eco-Lodges</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Deals</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="font-bold text-[#111812] dark:text-white">Company</h3>
+<div class="flex flex-col gap-2">
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">About Us</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Careers</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Press</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Contact</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h3 class="font-bold text-[#111812] dark:text-white">Support</h3>
+<div class="flex flex-col gap-2">
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Help Center</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Safety Information</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Cancellation Options</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors text-sm" href="#">Host an Experience</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-gray-400 text-sm">© 2023 Kheyma Inc. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="text-gray-400 hover:text-primary text-sm" href="#">Privacy</a>
+<a class="text-gray-400 hover:text-primary text-sm" href="#">Terms</a>
+<a class="text-gray-400 hover:text-primary text-sm" href="#">Sitemap</a>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

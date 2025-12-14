@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kheyma - Register</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "surface-dark": "#1a2c1e",
+                        "input-bg": "#28392b",
+                        "text-muted": "#9db9a1",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark mode feeling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #102213; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #28392b; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #13ec37; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-[#28392b] bg-white/90 dark:bg-[#111812]/90 backdrop-blur-md px-6 lg:px-10 py-3">
+<div class="flex items-center gap-4">
+<div class="size-8 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Kheyma</h2>
+</div>
+<div class="flex flex-1 justify-end gap-6 md:gap-8">
+<div class="hidden md:flex items-center gap-6 lg:gap-9">
+<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Explore</a>
+<a class="text-slate-600 dark:text-white text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Log In</a>
+</div>
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-slate-900 text-sm font-bold leading-normal tracking-wide hover:bg-green-400 transition-colors">
+<span class="truncate">Log In</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col md:flex-row h-full">
+<!-- Left: Form Section -->
+<div class="w-full md:w-1/2 lg:w-[45%] xl:w-[40%] flex flex-col justify-center px-6 sm:px-12 md:px-10 lg:px-20 py-10 md:py-0 bg-white dark:bg-background-dark z-10">
+<div class="max-w-[480px] w-full mx-auto space-y-8">
+<!-- Headings -->
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white tracking-tight text-3xl md:text-4xl font-bold leading-tight">Create your account</h1>
+<p class="text-slate-500 dark:text-text-muted text-sm font-normal leading-relaxed">Join Egypt's largest community of campers and explorers. Discover hidden gems under the stars.</p>
+</div>
+<!-- Form -->
+<form class="flex flex-col gap-5">
+<!-- Username -->
+<label class="flex flex-col w-full">
+<p class="text-slate-700 dark:text-white text-sm font-medium leading-normal pb-2">Username</p>
+<input class="form-input w-full rounded-lg text-slate-900 dark:text-white bg-slate-50 dark:bg-input-bg border border-slate-200 dark:border-transparent focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-text-muted/60 text-base font-normal transition-all duration-200" placeholder="Enter your username" type="text"/>
+</label>
+<!-- Email -->
+<label class="flex flex-col w-full">
+<p class="text-slate-700 dark:text-white text-sm font-medium leading-normal pb-2">Email Address</p>
+<input class="form-input w-full rounded-lg text-slate-900 dark:text-white bg-slate-50 dark:bg-input-bg border border-slate-200 dark:border-transparent focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-text-muted/60 text-base font-normal transition-all duration-200" placeholder="you@example.com" type="email"/>
+</label>
+<!-- Password -->
+<label class="flex flex-col w-full relative group">
+<p class="text-slate-700 dark:text-white text-sm font-medium leading-normal pb-2">Password</p>
+<div class="relative">
+<input class="form-input w-full rounded-lg text-slate-900 dark:text-white bg-slate-50 dark:bg-input-bg border border-slate-200 dark:border-transparent focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-text-muted/60 text-base font-normal transition-all duration-200 pr-10" placeholder="Create a password" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</label>
+<!-- Confirm Password -->
+<label class="flex flex-col w-full">
+<p class="text-slate-700 dark:text-white text-sm font-medium leading-normal pb-2">Confirm Password</p>
+<input class="form-input w-full rounded-lg text-slate-900 dark:text-white bg-slate-50 dark:bg-input-bg border border-slate-200 dark:border-transparent focus:border-primary focus:ring-1 focus:ring-primary h-12 px-4 placeholder:text-slate-400 dark:placeholder:text-text-muted/60 text-base font-normal transition-all duration-200" placeholder="Confirm your password" type="password"/>
+</label>
+<!-- Register Button -->
+<button class="mt-2 w-full cursor-pointer flex items-center justify-center rounded-lg h-12 px-5 bg-primary text-background-dark text-base font-bold leading-normal tracking-wide hover:bg-[#0fdc30] hover:shadow-[0_0_15px_rgba(19,236,55,0.3)] transition-all duration-300" type="button">
+                        Create Account
+                    </button>
+<!-- Divider -->
+<div class="relative flex py-2 items-center">
+<div class="flex-grow border-t border-slate-200 dark:border-[#28392b]"></div>
+<span class="flex-shrink-0 mx-4 text-slate-400 dark:text-text-muted text-xs">Or continue with</span>
+<div class="flex-grow border-t border-slate-200 dark:border-[#28392b]"></div>
+</div>
+<!-- Social Login -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 h-11 rounded-lg border border-slate-200 dark:border-[#28392b] bg-white dark:bg-[#1a2c1e] text-slate-700 dark:text-white text-sm font-medium hover:bg-slate-50 dark:hover:bg-[#28392b] transition-colors" type="button">
+<img alt="Google logo" class="w-5 h-5" data-alt="Google logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE_QBTQOsMnSju6ErMm0OinYVhqbtnAKStljE-HtQhTTYcQ3Nn0cB2hX5YUIW8BTD7COnQ5RzgI907ZUAWjLVzo5Gwag4cg8e0RTzUTZmPprw0la21tklImv1HiG9rpng0r4VvUl4Up7zB39C866zN6WJNUvvnJsSVN3kYwIQJGhZdNnE7EBfqrc04F9pZjFzL7_mVXKSXFqbhzhlq35zkw7AG6GfNNtleMvo33qS4ynG-5SjdK2_W4TnRElE0i-hCMnywP4gH8uI"/>
+<span>Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 h-11 rounded-lg border border-slate-200 dark:border-[#28392b] bg-white dark:bg-[#1a2c1e] text-slate-700 dark:text-white text-sm font-medium hover:bg-slate-50 dark:hover:bg-[#28392b] transition-colors" type="button">
+<img alt="Facebook logo" class="w-5 h-5" data-alt="Facebook logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA83Hxi2mpKfwxbLTLhhKCOoLjTxJwKKRgp9iBsCOu4VA6lITxw3vzBRo3KW6_QTUWJ-GrVeMLCnipaWKTA7bWTyl0s8iXsfVDbM6mbw-yQCjbyGR87AzBOklKZExmhxRiGDImqXNyb4I6LBIDFpFKTWTt7TJ41k9Ia67FATF3gqBt9GNJmqqxOBTrBT7V0w7vQu9lz65sUPh5BzXjfu480abp0p5FDDF15TsZ0ed2H0bPLiGkxV5pCeW1dOg_AyZ1rz-4CaZyq078"/>
+<span>Facebook</span>
+</button>
+</div>
+<!-- Meta Text -->
+<p class="text-slate-500 dark:text-text-muted text-xs text-center font-normal leading-normal pt-2">
+                        By registering, you agree to our <a class="underline hover:text-primary" href="#">Terms of Service</a> and <a class="underline hover:text-primary" href="#">Privacy Policy</a>.
+                    </p>
+</form>
+<!-- Footer Link -->
+<div class="text-center pt-2">
+<p class="text-slate-600 dark:text-white text-sm">Already have an account? <a class="text-primary font-semibold hover:underline" href="#">Log in</a></p>
+</div>
+</div>
+</div>
+<!-- Right: Image Section (Hidden on Mobile) -->
+<div class="hidden md:block w-1/2 lg:w-[55%] xl:w-[60%] relative overflow-hidden bg-surface-dark">
+<div class="absolute inset-0 bg-gradient-to-r from-background-dark via-transparent to-transparent z-10 w-32"></div>
+<img alt="Tent camping under a starry night sky in the desert" class="absolute inset-0 w-full h-full object-cover opacity-80" data-alt="Tent camping under a starry night sky in the desert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-4HdPoIEDC90iohojHrFJqMacG47VY21EIxn8r7_wECs5cdIzyQeu6CCTmkpff1_e4qtUp6mK6yvulCOerQ9oXXQZHX_XFjg6JhbUzSrT_uohZI5GpMtJKknqoLsOqFeuH5-Imx2W6L7U1dT84CDyK_y-o_dd6C3WzM8lqb9g2YECq-owyRknADjSUe9rdUmhxH765-ZZoEPjkRW9GQ3UJllie5rLc5cP9KPgv9zuACTqK9M7QFRUyXLR9vzop5MGsfYSb3839wc"/>
+<div class="absolute inset-0 bg-background-dark/30 z-0"></div>
+<!-- Overlay Content -->
+<div class="absolute bottom-12 left-12 right-12 z-20 max-w-lg">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary">camping</span>
+<p class="text-primary font-bold tracking-wider text-sm uppercase">Explore Egypt</p>
+</div>
+<h2 class="text-white text-4xl lg:text-5xl font-bold leading-tight mb-4 drop-shadow-lg">Find your perfect spot under the stars.</h2>
+<div class="flex items-center gap-3">
+<div class="flex -space-x-3">
+<img alt="User Avatar 1" class="w-10 h-10 rounded-full border-2 border-background-dark" data-alt="Portrait of a smiling young woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1-ESZm3VvXRxttPELJJLzFnNm_ViH2bYqrBYLqbAoI89nI8bvxoDMWsRmwbyrHuG6F2U3mxAtmYmtPZUT6TJkDPboaHYU4iFbPq5AI9KnY8KBe9WBMuer7eHFEqh9tzoIrkgpNkLCslEgXm4m3AxNR3Votdo5WCb5AS1DJI4WUfO2xKPy1u9tcoONHA0Ypg_r5hmDk6UwoEVr1mL7VhEgIWk71MKDOAmMa92HyQeZJJX5HN6JfybhspklS80HaRWXbc6TMgHV4Ao"/>
+<img alt="User Avatar 2" class="w-10 h-10 rounded-full border-2 border-background-dark" data-alt="Portrait of a young man with a beard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLbbZcWvSKNHLXBrR9heYMHXtvq8Z8QnqdD6FuDxZbnPS9djBRY78cmWcwLeuH2tBuykOT1neeQuHi9o38OLLeTiqucHFzYnobhvXhkESiNQ3j_gO5-lKymihvB-8pDmdxROLPFdj4-inUBAGhnE4CfhBMAvQecECD_b0efORlASq_g9BGt74lLPB8xHssh4DM0npZ6TC5VBWMoZ2YCXg_yvf7FhJypPe_vw5wHqdm27QTuBXobJScPtHBqijB5FSApqkOOo5WHVQ"/>
+<img alt="User Avatar 3" class="w-10 h-10 rounded-full border-2 border-background-dark" data-alt="Portrait of a smiling man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACa4YxPEDqpCXlxxwEGvHURd0GVN-ml7CWzV04_kJmF18Uss1OpD1AiqxQR9dO7unpn0pSgOnTRdTwGlQ8U2DXYmmACskY4rhdMZr5t5pXoxW30SVmoNVMzR0ACIm2kqcnqPXQVYb75alz-dukNXAT59AuViL2Y__B8OCsoPtBgXRD-lrA9G68x80JjnXd7wepNpqEX0ULOeouZLnMfwV4h19HsmncAc3RJ2skS3TyjbNEOFD1HPEQ_jMTEulhEgCPT45NHmuci7c"/>
+</div>
+<p class="text-white text-sm font-medium drop-shadow-md">Join 10,000+ campers</p>
+</div>
+</div>
+<!-- Location Badge -->
+<div class="absolute top-8 right-8 z-20 bg-black/40 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-white text-[18px]">location_on</span>
+<span class="text-white text-xs font-bold tracking-wide">White Desert, Egypt</span>
+</div>
+</div>
+</main>
+</body></html>

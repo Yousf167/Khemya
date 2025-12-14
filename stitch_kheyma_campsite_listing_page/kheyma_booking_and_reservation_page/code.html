@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kheyma - Complete Reservation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c1e",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for cleanliness */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111812] dark:text-white font-display antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f4f1] dark:border-white/10 px-4 md:px-10 py-3 bg-surface-light dark:bg-surface-dark sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-4 text-[#111812] dark:text-white">
+<div class="size-8 text-primary">
+<span class="material-symbols-outlined text-4xl">camping</span>
+</div>
+<h2 class="text-[#111812] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em]">Kheyma</h2>
+</div>
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-[#111812] dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Destinations</a>
+<a class="text-[#111812] dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Packages</a>
+<a class="text-[#111812] dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Blog</a>
+<a class="text-[#111812] dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">My Account</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4 md:gap-8">
+<div class="hidden md:flex flex-col min-w-40 !h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full bg-[#f0f4f1] dark:bg-white/10">
+<div class="text-[#618968] dark:text-gray-400 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="flex w-full min-w-0 flex-1 bg-transparent border-none focus:ring-0 text-base font-normal leading-normal text-[#111812] dark:text-white placeholder:text-[#618968] dark:placeholder:text-gray-500 px-2" placeholder="Search campsites..."/>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-green-400 transition-colors text-[#111812] text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Sign In</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Layout -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 md:px-8 py-8">
+<!-- Page Heading & Breadcrumbs -->
+<div class="mb-8">
+<div class="flex items-center gap-2 text-sm text-[#618968] dark:text-gray-400 mb-2 font-medium">
+<a class="hover:underline" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:underline" href="#">Sinai</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-[#111812] dark:text-white">Ras Shaitan</span>
+</div>
+<h1 class="text-[#111812] dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em] mb-2">Complete your reservation for Ras Shaitan Camp</h1>
+<p class="text-[#618968] dark:text-primary/80 text-base font-semibold leading-normal flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">lock</span>
+                Step 2 of 3 · Secure Checkout
+            </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 relative">
+<!-- Left Column: Booking Form -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Section 1: Dates -->
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 shadow-sm border border-[#f0f4f1] dark:border-white/5">
+<h2 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+<span class="material-symbols-outlined text-primary">calendar_month</span>
+                        Select Dates
+                    </h2>
+<!-- Dual Calendar Container -->
+<div class="flex flex-wrap xl:flex-nowrap justify-center gap-8 pt-2">
+<!-- Month 1 -->
+<div class="flex-1 min-w-[300px]">
+<div class="flex items-center justify-between mb-4 px-2">
+<button class="p-1 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<span class="text-base font-bold dark:text-white">October 2023</span>
+<div class="w-8"></div> <!-- Spacer -->
+</div>
+<div class="grid grid-cols-7 text-center mb-2">
+<span class="text-xs font-bold text-gray-400">S</span>
+<span class="text-xs font-bold text-gray-400">M</span>
+<span class="text-xs font-bold text-gray-400">T</span>
+<span class="text-xs font-bold text-gray-400">W</span>
+<span class="text-xs font-bold text-gray-400">T</span>
+<span class="text-xs font-bold text-gray-400">F</span>
+<span class="text-xs font-bold text-gray-400">S</span>
+</div>
+<div class="grid grid-cols-7 gap-y-2">
+<!-- Placeholders -->
+<span></span><span></span><span></span>
+<!-- Days -->
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">1</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">2</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">3</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">4</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full bg-primary text-[#111812] font-bold">5</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full bg-[#f0f4f1] dark:bg-white/20 dark:text-white">6</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full bg-[#f0f4f1] dark:bg-white/20 dark:text-white">7</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full bg-[#f0f4f1] dark:bg-white/20 dark:text-white">8</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full bg-primary text-[#111812] font-bold">9</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">10</button>
+<!-- ... rest of dates simplified for brevity ... -->
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">11</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">12</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">...</button>
+</div>
+</div>
+<div class="w-px bg-gray-200 dark:bg-white/10 hidden xl:block"></div>
+<!-- Month 2 -->
+<div class="flex-1 min-w-[300px]">
+<div class="flex items-center justify-between mb-4 px-2">
+<div class="w-8"></div>
+<span class="text-base font-bold dark:text-white">November 2023</span>
+<button class="p-1 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<div class="grid grid-cols-7 text-center mb-2">
+<span class="text-xs font-bold text-gray-400">S</span>
+<span class="text-xs font-bold text-gray-400">M</span>
+<span class="text-xs font-bold text-gray-400">T</span>
+<span class="text-xs font-bold text-gray-400">W</span>
+<span class="text-xs font-bold text-gray-400">T</span>
+<span class="text-xs font-bold text-gray-400">F</span>
+<span class="text-xs font-bold text-gray-400">S</span>
+</div>
+<div class="grid grid-cols-7 gap-y-2">
+<!-- Placeholders -->
+<span></span><span></span><span></span>
+<!-- Days -->
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">1</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">2</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">3</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">4</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">5</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">6</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">7</button>
+<button class="h-10 w-10 mx-auto flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-white/10 dark:text-gray-300">...</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Guests -->
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 shadow-sm border border-[#f0f4f1] dark:border-white/5">
+<h2 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+<span class="material-symbols-outlined text-primary">group</span>
+                        Guests
+                    </h2>
+<div class="space-y-4">
+<!-- Adults -->
+<div class="flex items-center justify-between p-3 border rounded-lg border-gray-100 dark:border-white/10">
+<div class="flex items-center gap-4">
+<div class="bg-[#f0f4f1] dark:bg-white/10 p-2 rounded-lg text-[#111812] dark:text-white">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<p class="text-[#111812] dark:text-white font-semibold">Adults</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Ages 13 or above</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">-</button>
+<span class="w-4 text-center font-bold">2</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">+</button>
+</div>
+</div>
+<!-- Children -->
+<div class="flex items-center justify-between p-3 border rounded-lg border-gray-100 dark:border-white/10">
+<div class="flex items-center gap-4">
+<div class="bg-[#f0f4f1] dark:bg-white/10 p-2 rounded-lg text-[#111812] dark:text-white">
+<span class="material-symbols-outlined">child_care</span>
+</div>
+<div>
+<p class="text-[#111812] dark:text-white font-semibold">Children</p>
+<p class="text-sm text-gray-500 dark:text-gray-400">Ages 2–12</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">-</button>
+<span class="w-4 text-center font-bold">0</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Packages -->
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 shadow-sm border border-[#f0f4f1] dark:border-white/5">
+<h2 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+<span class="material-symbols-outlined text-primary">camping</span>
+                        Choose Your Experience
+                    </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Option 1 -->
+<label class="relative flex flex-col p-4 border-2 border-[#f0f4f1] dark:border-white/10 rounded-xl cursor-pointer hover:border-primary/50 transition-all has-[:checked]:border-primary has-[:checked]:bg-primary/5 dark:has-[:checked]:bg-primary/10">
+<input class="peer sr-only" name="package" type="radio"/>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-lg dark:text-white">Basic Beach Hut</h3>
+<div class="size-5 rounded-full border border-gray-300 dark:border-gray-500 peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+<div class="size-2 rounded-full bg-black hidden peer-checked:block"></div>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4 flex-1">Authentic bamboo hut right on the beach. Shared bathroom facilities.</p>
+<p class="font-bold text-lg text-primary">EGP 800 <span class="text-sm text-gray-400 font-normal">/ night</span></p>
+</label>
+<!-- Option 2 -->
+<label class="relative flex flex-col p-4 border-2 border-primary rounded-xl cursor-pointer bg-primary/5 dark:bg-primary/10 transition-all">
+<input checked="" class="peer sr-only" name="package" type="radio"/>
+<div class="absolute -top-3 left-4 bg-primary text-[#111812] text-xs font-bold px-2 py-1 rounded">POPULAR</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-bold text-lg dark:text-white">Glamping Suite</h3>
+<div class="size-5 rounded-full border border-gray-300 dark:border-gray-500 peer-checked:bg-primary peer-checked:border-primary flex items-center justify-center">
+<div class="size-2 rounded-full bg-[#111812] hidden peer-checked:block"></div>
+</div>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4 flex-1">Large canvas tent with queen bed, AC, and private ensuite bathroom.</p>
+<p class="font-bold text-lg text-primary">EGP 2,400 <span class="text-sm text-gray-400 font-normal">/ night</span></p>
+</label>
+</div>
+</section>
+<!-- Section 4: Add-ons -->
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 shadow-sm border border-[#f0f4f1] dark:border-white/5">
+<h2 class="text-xl font-bold mb-4 flex items-center gap-2 dark:text-white">
+<span class="material-symbols-outlined text-primary">extension</span>
+                        Customize Trip
+                    </h2>
+<div class="space-y-3">
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary bg-transparent" type="checkbox"/>
+<div>
+<p class="font-semibold dark:text-white">Bedouin Dinner</p>
+<p class="text-xs text-gray-500">Traditional slow-cooked meal under stars</p>
+</div>
+</div>
+<span class="font-medium text-sm text-gray-600 dark:text-gray-300">+ EGP 350 / pp</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer">
+<div class="flex items-center gap-3">
+<input checked="" class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary bg-transparent" type="checkbox"/>
+<div>
+<p class="font-semibold dark:text-white">Snorkeling Gear</p>
+<p class="text-xs text-gray-500">Mask, snorkel, and fins rental</p>
+</div>
+</div>
+<span class="font-medium text-sm text-gray-600 dark:text-gray-300">+ EGP 150 / day</span>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/5 cursor-pointer">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary bg-transparent" type="checkbox"/>
+<div>
+<p class="font-semibold dark:text-white">Cairo Transfer (Round trip)</p>
+<p class="text-xs text-gray-500">Private AC bus from meeting point</p>
+</div>
+</div>
+<span class="font-medium text-sm text-gray-600 dark:text-gray-300">+ EGP 900 / pp</span>
+</label>
+</div>
+</section>
+<!-- Section 5: Payment -->
+<section class="bg-surface-light dark:bg-surface-dark rounded-xl p-6 shadow-sm border border-[#f0f4f1] dark:border-white/5">
+<h2 class="text-xl font-bold mb-6 flex items-center gap-2 dark:text-white">
+<span class="material-symbols-outlined text-primary">payments</span>
+                        Payment Method
+                    </h2>
+<div class="flex gap-4 mb-6 overflow-x-auto pb-2">
+<button class="flex-shrink-0 flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary text-primary rounded-lg font-bold">
+<span class="material-symbols-outlined">credit_card</span>
+                            Credit Card
+                        </button>
+<button class="flex-shrink-0 flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-white/5 border border-transparent hover:bg-gray-200 dark:hover:bg-white/10 text-gray-600 dark:text-gray-300 rounded-lg font-medium transition-colors">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                            Instapay
+                        </button>
+<button class="flex-shrink-0 flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-white/5 border border-transparent hover:bg-gray-200 dark:hover:bg-white/10 text-gray-600 dark:text-gray-300 rounded-lg font-medium transition-colors">
+<span class="material-symbols-outlined">smartphone</span>
+                            Mobile Wallet
+                        </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="md:col-span-2">
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Card Number</label>
+<div class="relative">
+<input class="w-full rounded-lg border-gray-200 dark:border-gray-700 bg-[#f0f4f1] dark:bg-white/5 focus:ring-primary focus:border-primary pl-10 py-2.5" placeholder="0000 0000 0000 0000" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-gray-400">credit_card</span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Expiry Date</label>
+<input class="w-full rounded-lg border-gray-200 dark:border-gray-700 bg-[#f0f4f1] dark:bg-white/5 focus:ring-primary focus:border-primary py-2.5" placeholder="MM/YY" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">CVC</label>
+<div class="relative">
+<input class="w-full rounded-lg border-gray-200 dark:border-gray-700 bg-[#f0f4f1] dark:bg-white/5 focus:ring-primary focus:border-primary pl-10 py-2.5" placeholder="123" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-gray-400">lock</span>
+</div>
+</div>
+<div class="md:col-span-2 pt-2 flex items-center gap-2 text-sm text-gray-500">
+<span class="material-symbols-outlined text-green-600">verified_user</span>
+                            Payments are processed securely by Paymob.
+                        </div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sticky Summary -->
+<div class="lg:col-span-4">
+<div class="sticky top-24 space-y-4">
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl shadow-lg border border-[#f0f4f1] dark:border-white/5 overflow-hidden">
+<!-- Campsite Image -->
+<div class="h-40 w-full bg-gray-200 relative">
+<img class="w-full h-full object-cover" data-alt="Scenic desert beach campsite with mountains in the background and bamboo huts" data-location="Sinai, Egypt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA43WFPBjl1mTxHhIrcdhRY1o4XUKEcBBFi3mrEmD0SpLkEsx6RerOGpvYapvFopHeYW7ysD-osYctrF3zoJQrP3fFbLMJdAPo_PwyVd5OhtQVFiH8a6ziqRhm_cdM48wCGRpUbfi4oD28lz10JwTl8moLomE6l73LBB-SsgAsO1QDZ1TdItdPnGRTx7404b61aXTj8CVfwY1wzoWZPPxVS8c3X4UlZJ0pFo1E5RYmm4j2FdxowYUmeZ6g6BA2sKPSoTPnk0R1afWg"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-black/80 px-2 py-1 rounded text-xs font-bold shadow-sm backdrop-blur-sm">
+                                ⭐ 4.9 (120)
+                            </div>
+</div>
+<div class="p-6">
+<div class="mb-6">
+<h3 class="text-xl font-bold dark:text-white mb-1">Ras Shaitan Camp</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                                    Nuweiba, South Sinai
+                                </p>
+</div>
+<div class="space-y-4 mb-6">
+<div class="flex justify-between text-sm">
+<div class="text-gray-500 dark:text-gray-400">Dates</div>
+<div class="font-medium dark:text-white text-right">Oct 5 – Oct 9<br/><span class="text-xs text-primary font-bold">(4 Nights)</span></div>
+</div>
+<div class="flex justify-between text-sm">
+<div class="text-gray-500 dark:text-gray-400">Guests</div>
+<div class="font-medium dark:text-white">2 Adults</div>
+</div>
+<div class="h-px bg-gray-100 dark:bg-white/10 my-2"></div>
+<div class="flex justify-between text-sm">
+<div class="text-gray-500 dark:text-gray-400">Glamping Suite x 4 nights</div>
+<div class="font-medium dark:text-white">EGP 9,600</div>
+</div>
+<div class="flex justify-between text-sm">
+<div class="text-gray-500 dark:text-gray-400">Service Fee</div>
+<div class="font-medium dark:text-white">EGP 500</div>
+</div>
+<div class="flex justify-between text-sm">
+<div class="text-gray-500 dark:text-gray-400">Add-ons (Snorkeling)</div>
+<div class="font-medium dark:text-white">EGP 600</div>
+</div>
+</div>
+<div class="h-px bg-gray-200 dark:bg-white/10 my-4"></div>
+<div class="flex justify-between items-end mb-6">
+<span class="text-lg font-bold dark:text-white">Total</span>
+<span class="text-2xl font-black text-primary">EGP 10,700</span>
+</div>
+<button class="w-full bg-primary hover:bg-green-400 text-[#111812] font-bold py-4 rounded-xl shadow-lg shadow-primary/20 transition-all transform active:scale-[0.98] flex items-center justify-center gap-2">
+                                Confirm &amp; Pay
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<div class="mt-4 flex flex-col items-center gap-2 text-xs text-gray-400 dark:text-gray-500 text-center">
+<p class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">lock</span>
+                                    SSL Secure Transaction
+                                </p>
+<p>Free cancellation until Oct 1st</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,24 @@
+# Server startup script generated files
+.backend.pid
+.frontend.pid
+.eureka.pid
+.gateway.pid
+.service.pid
+*.log
+.eureka.log
+.gateway.log
+.service.log
+.frontend.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Maven local repository (if using project-local repo)
+kheyma_backend/repository/
+
+# OS files
+.DS_Store
+Thumbs.db
+

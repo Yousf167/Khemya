@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kheyma Admin Dashboard</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "primary-hover": "#0fb82b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "surface-dark": "#1a2c1e",
+                        "surface-highlight": "#28392b",
+                        "text-secondary": "#9db9a1",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden antialiased selection:bg-primary selection:text-background-dark">
+<div class="flex h-screen w-full overflow-hidden">
+<!-- Side Navigation -->
+<aside class="hidden w-64 flex-col border-r border-surface-highlight bg-background-dark md:flex">
+<div class="flex h-16 items-center gap-3 border-b border-surface-highlight px-6">
+<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-background-dark font-bold">
+<span class="material-symbols-outlined" style="font-size: 20px;">camping</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight text-white">Kheyma Admin</h1>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 py-6">
+<div class="flex flex-col gap-2">
+<!-- Dashboard (Active) -->
+<a class="group flex items-center gap-3 rounded-lg bg-surface-highlight px-3 py-2.5 transition-all hover:bg-surface-highlight" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-primary">dashboard</span>
+<span class="text-sm font-medium text-white">Dashboard</span>
+</a>
+<!-- Campsites -->
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all hover:bg-surface-highlight/50" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">camping</span>
+<span class="text-sm font-medium text-text-secondary group-hover:text-white">Campsites</span>
+</a>
+<!-- Bookings -->
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all hover:bg-surface-highlight/50" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">calendar_month</span>
+<span class="text-sm font-medium text-text-secondary group-hover:text-white">Bookings</span>
+<span class="ml-auto flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-background-dark">5</span>
+</a>
+<!-- Users -->
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all hover:bg-surface-highlight/50" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">group</span>
+<span class="text-sm font-medium text-text-secondary group-hover:text-white">Users</span>
+</a>
+<!-- Financials -->
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all hover:bg-surface-highlight/50" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">payments</span>
+<span class="text-sm font-medium text-text-secondary group-hover:text-white">Financials</span>
+</a>
+<!-- Settings -->
+<a class="group flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all hover:bg-surface-highlight/50" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">settings</span>
+<span class="text-sm font-medium text-text-secondary group-hover:text-white">Settings</span>
+</a>
+</div>
+</nav>
+<div class="border-t border-surface-highlight p-4">
+<div class="flex items-center gap-3 rounded-lg bg-surface-highlight/30 p-3">
+<div class="h-10 w-10 rounded-full bg-cover bg-center" data-alt="Administrator profile picture showing a smiling person" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAXEiEGvabqxOpOrRv0-2GMOGfDDKjA9EjBr3DmidCKl0PT-B2qpc8Tbd1XHdtxXQA128qnxZh61fzzCEUCda8AVmI_c8GkTK6Kq8EpNLe5_Na_fGNbfXWbPexcvK3Fi7D1s1-_gb2u2MUC6QiZ3aBC9BfCC9nQSfPPse8GTmio2_YRGCOiujY73Yez55600OlqD-ECbu_s338143P4BSo8SRZLBwHsAaRkqtegswDfvuLl7Tluw3KNdaCrtN4L1lSUq2TkMZ7RUaE');"></div>
+<div class="flex flex-col overflow-hidden">
+<p class="truncate text-sm font-medium text-white">Karim Ahmed</p>
+<p class="truncate text-xs text-text-secondary">Super Admin</p>
+</div>
+<button class="ml-auto text-text-secondary hover:text-white">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex flex-1 flex-col overflow-hidden bg-background-light dark:bg-background-dark">
+<!-- Top Navigation Bar -->
+<header class="flex h-16 items-center justify-between border-b border-surface-highlight bg-background-dark px-6 md:px-10">
+<div class="flex flex-1 items-center gap-4">
+<!-- Mobile Menu Button -->
+<button class="text-white md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Search Bar -->
+<div class="hidden max-w-md flex-1 md:block">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary">search</span>
+<input class="w-full rounded-lg border-none bg-surface-highlight py-2 pl-10 pr-4 text-sm text-white placeholder-text-secondary focus:ring-2 focus:ring-primary" placeholder="Search campsites, bookings, or users..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden h-10 items-center justify-center gap-2 rounded-lg bg-primary px-4 text-sm font-bold text-background-dark transition-colors hover:bg-primary-hover sm:flex">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Add New Campsite</span>
+</button>
+<button class="relative flex h-10 w-10 items-center justify-center rounded-lg bg-surface-highlight text-white transition-colors hover:bg-surface-highlight/80">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute right-2 top-2 h-2 w-2 rounded-full bg-red-500 ring-2 ring-surface-highlight"></span>
+</button>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<div class="flex-1 overflow-y-auto p-6 md:p-10">
+<div class="mx-auto max-w-7xl space-y-8">
+<!-- Page Heading -->
+<div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+<div>
+<h2 class="text-3xl font-black tracking-tight text-white md:text-4xl">Dashboard Overview</h2>
+<p class="mt-2 text-text-secondary">Welcome back, Karim. Here is your daily summary for Kheyma.</p>
+</div>
+<button class="flex items-center justify-center gap-2 rounded-lg bg-surface-highlight px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-surface-highlight/80">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Export Report</span>
+</button>
+</div>
+<!-- Stats / KPI Cards -->
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+<!-- Revenue -->
+<div class="flex flex-col justify-between rounded-xl bg-surface-highlight p-6">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-sm font-medium text-text-secondary">Total Revenue</p>
+<h3 class="mt-2 text-2xl font-bold text-white">$45,200</h3>
+</div>
+<div class="rounded-lg bg-surface-dark p-2 text-primary">
+<span class="material-symbols-outlined">attach_money</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="flex items-center text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+                                    12%
+                                </span>
+<span class="text-xs text-text-secondary">vs last month</span>
+</div>
+</div>
+<!-- Active Bookings -->
+<div class="flex flex-col justify-between rounded-xl bg-surface-highlight p-6">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-sm font-medium text-text-secondary">Active Bookings</p>
+<h3 class="mt-2 text-2xl font-bold text-white">124</h3>
+</div>
+<div class="rounded-lg bg-surface-dark p-2 text-primary">
+<span class="material-symbols-outlined">confirmation_number</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="flex items-center text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+                                    5%
+                                </span>
+<span class="text-xs text-text-secondary">vs last month</span>
+</div>
+</div>
+<!-- New Users -->
+<div class="flex flex-col justify-between rounded-xl bg-surface-highlight p-6">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-sm font-medium text-text-secondary">New Users</p>
+<h3 class="mt-2 text-2xl font-bold text-white">340</h3>
+</div>
+<div class="rounded-lg bg-surface-dark p-2 text-primary">
+<span class="material-symbols-outlined">person_add</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="flex items-center text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+                                    18%
+                                </span>
+<span class="text-xs text-text-secondary">vs last month</span>
+</div>
+</div>
+<!-- Occupancy Rate -->
+<div class="flex flex-col justify-between rounded-xl bg-surface-highlight p-6">
+<div class="flex items-start justify-between">
+<div>
+<p class="text-sm font-medium text-text-secondary">Occupancy Rate</p>
+<h3 class="mt-2 text-2xl font-bold text-white">78%</h3>
+</div>
+<div class="rounded-lg bg-surface-dark p-2 text-primary">
+<span class="material-symbols-outlined">home_work</span>
+</div>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<span class="flex items-center text-xs font-bold text-red-500">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+                                    2%
+                                </span>
+<span class="text-xs text-text-secondary">vs last month</span>
+</div>
+</div>
+</div>
+<!-- Charts & Maps Section -->
+<div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+<!-- Revenue Chart (Spans 2 columns) -->
+<div class="col-span-1 rounded-xl bg-surface-highlight p-6 lg:col-span-2">
+<div class="mb-6 flex items-center justify-between">
+<div>
+<h3 class="text-lg font-bold text-white">Revenue Trends</h3>
+<p class="text-sm text-text-secondary">Last 30 Days</p>
+</div>
+<button class="text-text-secondary hover:text-white">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Chart Placeholder -->
+<div class="relative h-64 w-full">
+<svg class="h-full w-full" fill="none" preserveaspectratio="none" viewbox="0 0 478 150" xmlns="http://www.w3.org/2000/svg">
+<!-- Gradient Area -->
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25V149H326.769H0V109Z" fill="url(#paint0_linear)"></path>
+<!-- Line Stroke -->
+<path d="M0 109C18.1538 109 18.1538 21 36.3077 21C54.4615 21 54.4615 41 72.6154 41C90.7692 41 90.7692 93 108.923 93C127.077 93 127.077 33 145.231 33C163.385 33 163.385 101 181.538 101C199.692 101 199.692 61 217.846 61C236 61 236 45 254.154 45C272.308 45 272.308 121 290.462 121C308.615 121 308.615 149 326.769 149C344.923 149 344.923 1 363.077 1C381.231 1 381.231 81 399.385 81C417.538 81 417.538 129 435.692 129C453.846 129 453.846 25 472 25" stroke="#13ec37" stroke-linecap="round" stroke-width="3"></path>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="paint0_linear" x1="236" x2="236" y1="1" y2="149">
+<stop stop-color="#13ec37" stop-opacity="0.2"></stop>
+<stop offset="1" stop-color="#13ec37" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</div>
+<!-- Map Visualization -->
+<div class="col-span-1 flex flex-col rounded-xl bg-surface-highlight p-6">
+<div class="mb-4">
+<h3 class="text-lg font-bold text-white">Campsite Distribution</h3>
+<p class="text-sm text-text-secondary">Location Density</p>
+</div>
+<div class="relative flex-1 overflow-hidden rounded-lg bg-surface-dark">
+<!-- Abstract map representation -->
+<img alt="Abstract map of Egypt showing campsite locations with heat spots" class="h-full w-full object-cover opacity-80 mix-blend-screen" data-location="Egypt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7fN9DNc3aguw6yaZL9rB05XxLm0d6W6_EUPRGqtYzb7GtyD2s8PjtZa4g6JdxPBU36yknVW6ShlIPFBT28rQJevWEA_toP6h5VjA-xP9o-is7F1SLfg2NQ5W6XeGew_GkEgjZKixt9skQbPM_y7ngbDFWtLFMx5SPklgiE31JoSRdOnv1R78TjBKqC6sHZJFkXDo0IpnlqVKSEhiV9lmADnrzLut-u4eM7cbPKVRrwjbsNKQlyQY62asr2-_zYhWLreoqf4YKGnY"/>
+<!-- Map overlay markers (simulated) -->
+<div class="absolute top-1/3 left-1/2 h-3 w-3 animate-pulse rounded-full bg-primary ring-4 ring-primary/20"></div>
+<div class="absolute top-1/4 right-1/4 h-2 w-2 rounded-full bg-primary ring-2 ring-primary/20"></div>
+<div class="absolute bottom-1/3 right-1/3 h-2 w-2 rounded-full bg-primary ring-2 ring-primary/20"></div>
+</div>
+<div class="mt-4 flex items-center justify-between text-sm">
+<span class="text-text-secondary">Highest density: <span class="text-white">Sinai</span></span>
+<a class="text-primary hover:underline" href="#">View Map</a>
+</div>
+</div>
+</div>
+<!-- Recent Bookings Table -->
+<div class="rounded-xl bg-surface-highlight pb-4">
+<div class="flex items-center justify-between border-b border-white/5 p-6">
+<h3 class="text-lg font-bold text-white">Recent Bookings</h3>
+<button class="text-sm font-medium text-primary hover:text-primary-hover">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm text-text-secondary">
+<thead class="bg-surface-dark/50 text-xs uppercase text-text-secondary">
+<tr>
+<th class="px-6 py-4 font-semibold" scope="col">Booking ID</th>
+<th class="px-6 py-4 font-semibold" scope="col">Campsite</th>
+<th class="px-6 py-4 font-semibold" scope="col">Customer</th>
+<th class="px-6 py-4 font-semibold" scope="col">Date</th>
+<th class="px-6 py-4 font-semibold" scope="col">Amount</th>
+<th class="px-6 py-4 font-semibold" scope="col">Status</th>
+<th class="px-6 py-4 font-semibold" scope="col">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="transition-colors hover:bg-white/5">
+<td class="px-6 py-4 font-medium text-white">#BK-7829</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-cover bg-center" data-alt="Small thumbnail of a desert campsite" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbJz1OIcpr5277J7I4q6OrpCGPR7FC-yCpD973ajttJajRyFjg4sh25788Wrx8nwBU6uu5eKnNoHa0sajpphiVWbJLWOUokwXtf1wYfyvNNhmhRPq8ZG3ESCJ05oYokcdu8RSuuHiWxn0Hd1kix7vgLe2jaQeUj3otpW8DV6sPRCZ1Y0vjtyjKvIGINhbTDgZM8wR4PHt4j-f95KDmSQVMZVH4uqlqDDBrrKAqct1BqjPqzM432JY3IXLcFYPxRRQjfUcrcdzHgjw');"></div>
+<span class="font-medium text-white">Siwa Oasis Camp</span>
+</div>
+</td>
+<td class="px-6 py-4">Ahmed Ali</td>
+<td class="px-6 py-4">Oct 24, 2023</td>
+<td class="px-6 py-4 text-white">$120.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-yellow-500/10 px-2.5 py-0.5 text-xs font-medium text-yellow-500">
+                                                Pending
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<button class="text-text-secondary hover:text-white">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-white/5">
+<td class="px-6 py-4 font-medium text-white">#BK-7828</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-cover bg-center" data-alt="Small thumbnail of a beach campsite" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuAdUYXD65abwQxeHBnbJMtnee_5gCpOg-YMyYQMYE2hQqiKG8tvixOrprIIPhM24zbjSdVutiyUB0tARsF3g5EB6MXG6fSEoGr3KwpyhSLyLdifuI7scBsUmC3CZn2OHIZdk_Hydgj8p0AphodNR5biwfXmxyJuwO4hrbhYD73Yu58ntHoevqIAQ7UdyFbCAm-K-d8tUsTMQ6vkQN3jAh2uUzU0x3-DaDVwfUQs0biYHQPq8QdpwmMjLEr3QoncEVEWiad12Euog');"></div>
+<span class="font-medium text-white">Ras Shaitan Hut</span>
+</div>
+</td>
+<td class="px-6 py-4">Sarah Moussa</td>
+<td class="px-6 py-4">Oct 23, 2023</td>
+<td class="px-6 py-4 text-white">$85.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                                                Confirmed
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<button class="text-text-secondary hover:text-white">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-white/5">
+<td class="px-6 py-4 font-medium text-white">#BK-7827</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-cover bg-center" data-alt="Small thumbnail of a mountain campsite" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAsQZFvmYmnXvg_eoyL4F8l0ai1YcxYn5mXHaYBVwbZharHdXwg0XBmHVKBJj_PkYY3Jkl_34YZLStwAuLeW62OByeoTpVN2PvV8EDPJFBz2c58wbqLCWc7Vh1gMzXAQ_Hh4S31qLYZonyOYsQNv65sZmBhztjoc1gRlE6Lp2xoLZqEuDfdBNY-PDPrDR0xAzPXFURSpt7OPqT8evyfFORIbEAH6BEZ2DvI6BgJ1W4zXcwDnc0OXW_-oFQWX9UJ33uGMNVWMoeT1uU');"></div>
+<span class="font-medium text-white">Saint Catherine Hike</span>
+</div>
+</td>
+<td class="px-6 py-4">Mohamed Salah</td>
+<td class="px-6 py-4">Oct 22, 2023</td>
+<td class="px-6 py-4 text-white">$210.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                                                Confirmed
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<button class="text-text-secondary hover:text-white">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-white/5">
+<td class="px-6 py-4 font-medium text-white">#BK-7826</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-cover bg-center" data-alt="Small thumbnail of a white desert campsite" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBNxoadt70z_34W4UvqvcNcEcewhLSrgVqtQCclQvvKJ5exP-DfzkPwBnhUGLODjhlN_iHsEul7T6WT4Xmq04fgN_wnZxdOvcBWYNbzoNmpY04l_IBq9sliPpbyY1vOaf-1Li4uE-066CH9TSto-5axmk5LqqAl7NEWkHSgC1JOQcbZq41lxARnFQ83K-fRn-R-Y0yHuawekp6xYBftSrQJYB4U2WE2kSaNRnzOhzTqwxaAO__r_dF8EAMVZfP4VVTsBqbe0ao71Yc');"></div>
+<span class="font-medium text-white">White Desert Safari</span>
+</div>
+</td>
+<td class="px-6 py-4">Layla Ibrahim</td>
+<td class="px-6 py-4">Oct 22, 2023</td>
+<td class="px-6 py-4 text-white">$350.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-red-500/10 px-2.5 py-0.5 text-xs font-medium text-red-500">
+                                                Cancelled
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<button class="text-text-secondary hover:text-white">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="transition-colors hover:bg-white/5">
+<td class="px-6 py-4 font-medium text-white">#BK-7825</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded bg-cover bg-center" data-alt="Small thumbnail of a beach campsite" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoOEENK1fN0G-Jkfgjctg1TyYzu5MmYh9IaDZhFL1pRRI4sldk9RCwtke1zCzdeQTQmRWR84rPuzrGAOWRTaMYlOLn_rFmb8eK2Ub-4hvv7nOrUhdGmjMiqg9yLTYiCmf-qqHltsjW3wO8-FMNtCGal5UArgMcQbFxqtUXSMCnOiKzxRIyQgnnV5bDl1GZ7En5VnmnrBIyVG514jPwZzejPMIBAu_ErfA4OTRsKjgpsqQ8jjuTnVdy0oGEboMjVH4fjVScfcIAQQQ');"></div>
+<span class="font-medium text-white">Fayoum Lakeside</span>
+</div>
+</td>
+<td class="px-6 py-4">Omar Hassan</td>
+<td class="px-6 py-4">Oct 21, 2023</td>
+<td class="px-6 py-4 text-white">$95.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                                                Confirmed
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<button class="text-text-secondary hover:text-white">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

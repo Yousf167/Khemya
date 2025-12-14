@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kheyma - Siwa Oasis Star Camp</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "text-main": "#111812",
+                        "text-muted": "#618968",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        .material-symbols-outlined.lg {
+            font-size: 24px;
+        }
+        /* Custom scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-display antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#f0f4f1] px-4 lg:px-10 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3 text-text-main hover:opacity-80 transition-opacity" href="#">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-black">
+<span class="material-symbols-outlined fill">camping</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">Kheyma</h2>
+</a>
+<!-- Search Bar (Desktop) -->
+<div class="hidden md:flex items-center bg-[#f0f4f1] rounded-full px-4 h-11 w-80 group focus-within:ring-2 ring-primary/50 transition-all">
+<span class="material-symbols-outlined text-text-muted">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full text-text-main placeholder:text-text-muted" placeholder="Search campsites, locations..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Explore</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Trips</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Saved</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="relative p-2 hover:bg-gray-100 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+</button>
+<button class="size-10 rounded-full overflow-hidden border border-gray-200">
+<div class="w-full h-full bg-cover bg-center" data-alt="User profile avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD-mFal8_h73uoeyg96AreCiMEH3y5NmtOarsCfTSIuSXjrm2faKfal8AZnrhNpARJkUwFZtxNB25iRRslPk1xr9DQVXbSVHOc7Y77U-YRJ-vPRoYI6PFiSuQHChSVXUe3l5QSvHfmAHkNO-qzUimwfclauRGtGTw5sCKAuOdH7_oFWznpeuCzejjemlWqjIeo6IiuPUJDCMyyWNjUgAnigmSmXdN1HzeT6NSYL0OdY3Mj5Dh9iIwDolNkoDgoQUwakEgvDTPAIxYU");'></div>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow w-full max-w-7xl mx-auto px-4 lg:px-10 py-6">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 items-center text-sm mb-6 text-text-muted">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined" style="font-size: 14px;">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Western Desert</a>
+<span class="material-symbols-outlined" style="font-size: 14px;">chevron_right</span>
+<span class="text-text-main font-medium">Siwa Oasis</span>
+</div>
+<!-- Page Heading -->
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
+<div>
+<h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-text-main mb-2">Siwa Oasis Star Camp</h1>
+<div class="flex items-center gap-2 text-sm md:text-base">
+<span class="flex items-center font-bold text-text-main">
+<span class="material-symbols-outlined fill text-primary mr-1" style="font-size: 18px;">star</span>
+                        4.8
+                    </span>
+<span class="text-text-muted">·</span>
+<a class="text-text-main underline decoration-gray-300 underline-offset-4 hover:text-primary" href="#reviews">124 reviews</a>
+<span class="text-text-muted">·</span>
+<span class="text-text-muted">Siwa, Egypt</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 h-10 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors text-sm font-semibold">
+<span class="material-symbols-outlined" style="font-size: 18px;">ios_share</span>
+                    Share
+                </button>
+<button class="flex items-center gap-2 px-4 h-10 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors text-sm font-semibold">
+<span class="material-symbols-outlined" style="font-size: 18px;">favorite</span>
+                    Save
+                </button>
+</div>
+</div>
+<!-- Hero Image Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-3 h-[400px] md:h-[480px] rounded-2xl overflow-hidden mb-10 relative group">
+<div class="md:col-span-2 md:row-span-2 relative">
+<div class="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-700" data-alt="Large tent set up on sand dunes at sunset" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB1tsc50QptugZQ75zbTKscHj-B0MxD_HVEonXVqEOHm5FeAbrKBsE1RJZHFR6fQDl-UT82qkC6Y7odf-Y7R6nIFrs_TJOi1SQHE_50yNTYUZQk1v020rgHucodI1Ofq3qKVVPLDgLbw1l0Hy14vObWBzTjJ3tYLoEPKUbIpWqOAiwM_MmHuJ2oc-OZ3oUeDpdr0b8_SyirTYXWxPazBV3v845l85-sz3JCZtQBPUHQmrcn2R1vJTQHilGyBFM2Yz_A9c1WvdyePA8");'></div>
+</div>
+<div class="hidden md:block relative">
+<div class="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-700" data-alt="Cozy campfire with people sitting around at night" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAwRK7kR6ZHQSV4H18uI16KuGU8i5686xQ_FLFbdvTol6Ng3_3yxjiXZEfngmFSJy_F8KTJEVkVYan2geh5-mAvRtr9RWTqaG9vhjbtyysSmaUjyn67W9fzcf9K_v2OQFifZLZ58EZYLFbJTF2ks0UuVxy09LOqMVXpoFojR5R4636r6Am7n2-LiZpv-J4UgPSCYkUHNferq71qM6Oh8M7Qp3EZjPEoILetoRAcBG6qEbrQ6qMDcrWX1pUo1R6KsIlTtLTeY12rxiw");'></div>
+</div>
+<div class="hidden md:block relative">
+<div class="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-700" data-alt="Interior of a glamping tent with comfortable bed" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCCdZ6Kmsr3ilcSjCvKN13HYIm8Kj-coFjzpLGr7-CRFgKWnnUJKrc5v3LDnwMfR9eeOahupSKjOWRSli_hvWxXq8kxPK6bs1kj3T8rNHLsPkG_kosHKIj32m5n12NzG2WJn_L6S5UzSgUvgtjomuI11OqWoDWJD_h8L-bOaC_SDcZq687OhQ1vdGLMNhzAlZ_ZLMKQL56uk1UjiPJ6bDpAI5cErkOF5rCJZxadD0dmXjt9rS5_VxDbNSzaRpmmHPGJZkdVh0mh1dI");'></div>
+</div>
+<div class="hidden md:block relative">
+<div class="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-700" data-alt="View of palm trees and a salt lake in Siwa" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBL_R-lZz4E5C-nNJ28FPotGNglcVJ527K5-PMf5L1n1QshCh3c2s2PWWL_jcYZg3n9zpEH9uCc8uhUgS1-pKkXeBtolKRtooF_msqIHwcSrtwO7XO0adOKmp0Zd7avRJYgEPRkyak8MdIumXexxip0hPW-beGkQA81BXMWnATmPuSPU5Khiheb0pbttHC1sKNnb7snxwv_Ok7yGXNRjc3lkKr2tNuss2Io_uqp_vNXqvsoahubiikmT0t_K8ATzHYjOguvxJVm7vE");'></div>
+</div>
+<div class="hidden md:block relative">
+<div class="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-700" data-alt="Traditional breakfast served on a low table in the desert" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5IesNtga6QbvlRqfmwEz5Z8KGsuh0ZTr_WkLdERrFB1q2dj5dOLiZeUBiCelMGgh08nK-XcMEw83GDAkLAHVyTDwk0KHL-tJAq5VlISPaHYr8i4XSzTkjeg4Eg7FzdoQW28PFjel9p5G01p-VMFi_wGttM-5R46Axis8yEmEJbu0EmReC1Fs5vckVU7VVbrkuEfKJI8VbBHrHTfyM45xlXUNOBNBYwl1iHh1BdaTP_yf-56vYTQorkhzf4kHItCM91mIetQERilc");'></div>
+<button class="absolute bottom-4 right-4 bg-white/90 hover:bg-white text-text-main px-4 py-2 rounded-lg text-sm font-bold shadow-md flex items-center gap-2 backdrop-blur-sm transition-all">
+<span class="material-symbols-outlined" style="font-size: 16px;">grid_view</span>
+                    Show all photos
+                </button>
+</div>
+</div>
+<!-- Main Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 relative">
+<!-- Left Column (Details) -->
+<div class="lg:col-span-2 flex flex-col gap-10">
+<!-- Host Profile -->
+<div class="flex items-center justify-between border-b border-gray-100 pb-8">
+<div class="flex items-center gap-4">
+<div class="size-16 rounded-full bg-gray-200 overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Portrait of Ahmed the host smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDyueLtndPllpuNL7Nr_W2EGxur15dwNUlP-yW8Cib4p072WRfmKoA1brsQg0K5vvdrmPf019QV4RfJIBb4x63RhOJnDfLFSt4hMUZ6Sug5CIf1CxaSDqdhlK-eapPvPte7i29o5qvwLOu5jtqENpk2UX1aE4EjzyJLSLhMztG4VDvTxM5xyJ2Jnlw4rlByinhgtyws92yDanRZ6BpuPvqqEBXjdkzxbNhw-p7yjQ2ZJJ_5y00QW5gRwgrWFpf4i2SMEs8syiPJPdo");'></div>
+</div>
+<div>
+<h3 class="text-xl font-bold text-text-main">Hosted by Ahmed</h3>
+<p class="text-text-muted text-sm">Super Camper · Joined 2021</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-text-main mb-1">verified_user</span>
+<span class="text-xs text-text-muted font-medium">Verified</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-text-main mb-1">military_tech</span>
+<span class="text-xs text-text-muted font-medium">Top Host</span>
+</div>
+</div>
+</div>
+<!-- Description -->
+<div class="space-y-4">
+<h3 class="text-2xl font-bold text-text-main">About this space</h3>
+<p class="text-text-muted leading-relaxed">
+                        Escape to the serene beauty of the Siwa Oasis at our Star Camp. Nestled between the Great Sand Sea and lush palm groves, our campsite offers a perfect blend of traditional Bedouin hospitality and modern glamping comfort. Whether you want to sleep under the stars or in our luxury huts, the magic of the desert awaits.
+                    </p>
+<p class="text-text-muted leading-relaxed">
+                        Enjoy evenings by the bonfire, guided treks to the salt lakes, and organic meals prepared with local ingredients. Perfect for solo travelers, couples, and small groups looking to disconnect.
+                    </p>
+<button class="flex items-center gap-1 font-bold text-text-main underline decoration-primary underline-offset-4 hover:text-primary transition-colors">
+                        Show more <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+</button>
+</div>
+<!-- Amenities -->
+<div class="border-t border-gray-100 pt-10">
+<h3 class="text-2xl font-bold text-text-main mb-6">What this place offers</h3>
+<div class="grid grid-cols-2 md:grid-cols-2 gap-y-4 gap-x-8">
+<div class="flex items-center gap-3 text-text-muted">
+<span class="material-symbols-outlined text-text-main">wifi</span>
+<span>Starlink Wifi</span>
+</div>
+<div class="flex items-center gap-3 text-text-muted">
+<span class="material-symbols-outlined text-text-main">local_fire_department</span>
+<span>Private Bonfire</span>
+</div>
+<div class="flex items-center gap-3 text-text-muted">
+<span class="material-symbols-outlined text-text-main">local_parking</span>
+<span>Free parking on premises</span>
+</div>
+<div class="flex items-center gap-3 text-text-muted">
+<span class="material-symbols-outlined text-text-main">restaurant</span>
+<span>Breakfast included</span>
+</div>
+<div class="flex items-center gap-3 text-text-muted">
+<span class="material-symbols-outlined text-text-main">shower</span>
+<span>Outdoor shower</span>
+</div>
+<div class="flex items-center gap-3 text-text-muted">
+<span class="material-symbols-outlined text-text-main">pets</span>
+<span>Pets allowed</span>
+</div>
+</div>
+<button class="mt-6 border border-gray-300 rounded-lg px-6 py-3 font-semibold text-text-main hover:border-black transition-colors">
+                        Show all 24 amenities
+                    </button>
+</div>
+<!-- Package Selector -->
+<div class="border-t border-gray-100 pt-10">
+<h3 class="text-2xl font-bold text-text-main mb-6">Choose your experience</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Package 1 -->
+<div class="relative border-2 border-transparent bg-[#f0f4f1] p-5 rounded-xl cursor-pointer hover:bg-[#e6ebe7] transition-colors group">
+<div class="flex justify-between items-start mb-3">
+<span class="material-symbols-outlined text-text-main p-2 bg-white rounded-lg">camping</span>
+<div class="size-5 rounded-full border-2 border-gray-400 group-hover:border-primary"></div>
+</div>
+<h4 class="font-bold text-lg mb-1">Bring Your Own Tent</h4>
+<p class="text-sm text-text-muted mb-3">Access to camp grounds and shared facilities.</p>
+<p class="font-bold text-text-main">EGP 300 <span class="font-normal text-sm text-text-muted">/ night</span></p>
+</div>
+<!-- Package 2 (Active) -->
+<div class="relative border-2 border-primary bg-primary/5 p-5 rounded-xl cursor-pointer">
+<div class="absolute -top-3 right-4 bg-primary text-black text-xs font-bold px-2 py-1 rounded shadow-sm">POPULAR</div>
+<div class="flex justify-between items-start mb-3">
+<span class="material-symbols-outlined text-text-main p-2 bg-white rounded-lg shadow-sm">cottage</span>
+<div class="size-5 rounded-full border-[6px] border-primary bg-white"></div>
+</div>
+<h4 class="font-bold text-lg mb-1">Glamping Hut</h4>
+<p class="text-sm text-text-muted mb-3">Private hut with bed, electricity and fan.</p>
+<p class="font-bold text-text-main">EGP 1,200 <span class="font-normal text-sm text-text-muted">/ night</span></p>
+</div>
+</div>
+</div>
+<!-- Reviews -->
+<div class="border-t border-gray-100 pt-10" id="reviews">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined fill text-primary" style="font-size: 28px;">star</span>
+<h3 class="text-2xl font-bold text-text-main">4.8 · 124 reviews</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Review Card 1 -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 mb-1">
+<div class="size-10 rounded-full bg-gray-200 bg-cover bg-center" data-alt="Profile picture of reviewer Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtpWKQh3gbCWJ6JR2E79w-Tb9RcLJfMHJt0AR6uPF6VF7tFuiMNuun2m0c_iaAagFm0_ZzX1zqQDzn5EPvnp1RDv0nuSDHsUkxjOilJ_bqwvJWPZAgJW-yWNeCSRTUa3K-IRVxaccDgAuCXtOMUj3lV2jLBNpZmgk7HmURE-Qi6xkqtC-7tUM12V_F07CHikcUGPr92_m5OWdSqbi-zsoEAXJjkO5fk2G1_YS8NNMx4PWe9sFX09MOAsSnv0JBj_wX93JL4IhuPyU");'></div>
+<div>
+<h5 class="font-bold text-text-main text-sm">Sarah Jenkins</h5>
+<p class="text-xs text-text-muted">Oct 2023</p>
+</div>
+</div>
+<p class="text-text-main text-sm leading-relaxed">
+                                Absolutely magical place! The view of the stars at night is unlike anything I've seen. Ahmed was a fantastic host and the food was delicious. Highly recommend the glamping hut.
+                            </p>
+</div>
+<!-- Review Card 2 -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center gap-3 mb-1">
+<div class="size-10 rounded-full bg-gray-200 bg-cover bg-center" data-alt="Profile picture of reviewer Omar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjJC6qFClUHvzi4YXoUxm0OKO_riBaVzF6a7j_nTB77wFkIPLU0bxr1C8fXnW0SisxS16AAECchiXo4YC2za13e_b9iTNbI_uIMnXF4PszYm6Mn8FksUJgiYi6RurGrPnHp-VxntIQ1F72ewIsMrtxc7pw3NORacPvCk7QUoL2Sus1VsI1rk2dHUDunVRL5r_3-q_x-Or0qX6MnbVXMglExr6fyP9G9QTNX6Lbdb1lmIVimdFH8J2QA6xQ9FhaLW-YDg5GF28pPNc");'></div>
+<div>
+<h5 class="font-bold text-text-main text-sm">Omar Khaled</h5>
+<p class="text-xs text-text-muted">Sep 2023</p>
+</div>
+</div>
+<p class="text-text-main text-sm leading-relaxed">
+                                Great vibe and very clean facilities. The location is perfect, close to the town but far enough to be quiet. Wi-Fi was surprisingly good for the desert!
+                            </p>
+</div>
+</div>
+<button class="mt-8 border border-gray-300 rounded-lg px-6 py-3 font-semibold text-text-main hover:border-black transition-colors">
+                        Show all 124 reviews
+                    </button>
+</div>
+<!-- Location Map -->
+<div class="border-t border-gray-100 pt-10">
+<h3 class="text-2xl font-bold text-text-main mb-6">Where you'll be</h3>
+<div class="w-full h-80 bg-gray-200 rounded-xl overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center opacity-80" data-alt="Map view showing Siwa Oasis location" data-location="Siwa Oasis, Egypt" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBuEoLRAnQQLiiOqe-2OiLyebMxJk5x-OQmueYqTJu4ynV1JbhXdb_0W-V0BgGq_fhAlfBNbTOD5Tg9QNFtoVNMO2F36_1vdj0Cje2wXj5gUYgM-Dps_p8k79UzIA17jcXsm9iasF_Go7KyfRSTjSL4hZZPlATbk609z9zCJZU0CrBEXWXthg6J-FV5swH_7OIqbQNurL59F1vHWLhIXiaBgTRxFDpOsNrNzvPkuXJgHA8HRIOfeH8nCw4-h7NlYCKfeDv4VymhfT0");'></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-primary text-black p-3 rounded-full shadow-lg transform -translate-y-4">
+<span class="material-symbols-outlined fill">home_pin</span>
+</div>
+</div>
+</div>
+<div class="mt-4">
+<h4 class="font-bold text-text-main">Siwa Oasis, Matrouh Governorate, Egypt</h4>
+<p class="text-text-muted text-sm mt-1">
+                            We are located 15 minutes from the Shali Fortress and 10 minutes from Cleopatra's Spring. The exact location will be provided after booking.
+                        </p>
+</div>
+</div>
+<!-- Policies -->
+<div class="border-t border-gray-100 pt-10 mb-20">
+<h3 class="text-2xl font-bold text-text-main mb-6">Things to know</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h4 class="font-bold text-text-main mb-2">House Rules</h4>
+<ul class="text-sm text-text-muted space-y-2">
+<li>Check-in after 2:00 PM</li>
+<li>Check-out before 11:00 AM</li>
+<li>No loud music after 10:00 PM</li>
+<li>Pets allowed on leash</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-text-main mb-2">Safety &amp; Property</h4>
+<ul class="text-sm text-text-muted space-y-2">
+<li>First aid kit available</li>
+<li>Fire extinguisher available</li>
+<li>Desert insects may be present</li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-text-main mb-2">Cancellation Policy</h4>
+<p class="text-sm text-text-muted mb-2">Free cancellation before 48 hours of check-in.</p>
+<a class="text-sm font-bold text-text-main underline decoration-gray-300" href="#">Read full policy</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Sticky Booking) -->
+<div class="lg:col-span-1">
+<div class="sticky top-28 bg-white border border-gray-200 rounded-xl shadow-xl p-6">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="text-2xl font-bold text-text-main">EGP 1,200</span>
+<span class="text-text-muted text-sm"> / night</span>
+</div>
+<div class="flex items-center gap-1 text-sm font-bold">
+<span class="material-symbols-outlined fill text-primary" style="font-size: 16px;">star</span>
+                            4.8 <span class="text-text-muted font-normal underline">(124)</span>
+</div>
+</div>
+<!-- Date Picker Mockup -->
+<div class="border border-gray-300 rounded-lg overflow-hidden mb-4">
+<div class="grid grid-cols-2 border-b border-gray-300">
+<div class="p-3 hover:bg-gray-50 cursor-pointer border-r border-gray-300">
+<label class="block text-[10px] font-bold text-text-main uppercase tracking-wider">Check-in</label>
+<div class="text-sm text-text-muted">Oct 24, 2023</div>
+</div>
+<div class="p-3 hover:bg-gray-50 cursor-pointer">
+<label class="block text-[10px] font-bold text-text-main uppercase tracking-wider">Check-out</label>
+<div class="text-sm text-text-muted">Oct 27, 2023</div>
+</div>
+</div>
+<div class="p-3 hover:bg-gray-50 cursor-pointer flex justify-between items-center">
+<div>
+<label class="block text-[10px] font-bold text-text-main uppercase tracking-wider">Guests</label>
+<div class="text-sm text-text-muted">2 guests</div>
+</div>
+<span class="material-symbols-outlined text-text-main">keyboard_arrow_down</span>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-[#0fd630] text-black font-bold py-3.5 rounded-lg transition-colors mb-4 text-lg">
+                        Reserve
+                    </button>
+<p class="text-center text-xs text-text-muted mb-6">You won't be charged yet</p>
+<div class="space-y-3 text-sm text-text-main">
+<div class="flex justify-between">
+<span class="underline decoration-gray-300 text-text-muted">EGP 1,200 x 3 nights</span>
+<span>EGP 3,600</span>
+</div>
+<div class="flex justify-between">
+<span class="underline decoration-gray-300 text-text-muted">Service fee</span>
+<span>EGP 450</span>
+</div>
+<div class="flex justify-between">
+<span class="underline decoration-gray-300 text-text-muted">Cleaning fee</span>
+<span>EGP 200</span>
+</div>
+</div>
+<div class="border-t border-gray-200 my-4 pt-4 flex justify-between font-bold text-lg text-text-main">
+<span>Total</span>
+<span>EGP 4,250</span>
+</div>
+<div class="mt-4 flex items-center justify-center gap-2 text-xs text-text-muted">
+<span class="material-symbols-outlined" style="font-size: 14px;">flag</span>
+<a class="underline hover:text-text-main" href="#">Report this listing</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Simple -->
+<footer class="border-t border-[#f0f4f1] bg-white py-8 mt-auto">
+<div class="max-w-7xl mx-auto px-4 lg:px-10 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-sm text-text-muted">
+                © 2023 Kheyma Inc. All rights reserved.
+            </div>
+<div class="flex gap-6 text-sm font-medium text-text-main">
+<a class="hover:underline" href="#">Privacy</a>
+<a class="hover:underline" href="#">Terms</a>
+<a class="hover:underline" href="#">Sitemap</a>
+</div>
+<div class="flex gap-4 text-text-main">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary">language</span>
+<span class="text-sm font-bold">English (EG)</span>
+<span class="text-sm font-bold">EGP</span>
+</div>
+</div>
+</footer>
+</body></html>

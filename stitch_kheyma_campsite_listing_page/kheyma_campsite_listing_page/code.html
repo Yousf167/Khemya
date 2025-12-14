@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kheyma - Campsite Listings</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "primary-dark": "#0fb82b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c1e",
+                        "text-main": "#111812",
+                        "text-muted": "#526355",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom range slider thumb styling for webkit */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #111812;
+            cursor: pointer;
+            margin-top: -8px;
+        }
+        input[type=range]::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #111812;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main antialiased selection:bg-primary selection:text-black">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="sticky top-0 z-50 w-full bg-surface-light/95 backdrop-blur-sm border-b border-[#e5eadd]">
+<div class="px-4 md:px-10 py-3 flex items-center justify-between gap-4">
+<div class="flex items-center gap-2 cursor-pointer">
+<div class="size-8 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">camping</span>
+</div>
+<h2 class="text-text-main text-xl font-bold tracking-tight">Kheyma</h2>
+</div>
+<!-- Search Bar -->
+<div class="hidden md:flex flex-1 max-w-xl mx-auto">
+<div class="flex w-full items-center rounded-full border border-[#e5eadd] bg-white shadow-sm hover:shadow-md transition-shadow py-1.5 pr-2 pl-6 divide-x divide-[#e5eadd]">
+<div class="flex-1 pr-4">
+<label class="block text-xs font-bold text-text-main">Where</label>
+<input class="w-full border-none p-0 text-sm placeholder:text-text-muted focus:ring-0 truncate bg-transparent" placeholder="Search destinations" type="text"/>
+</div>
+<div class="flex-1 px-4">
+<label class="block text-xs font-bold text-text-main">Check in</label>
+<input class="w-full border-none p-0 text-sm placeholder:text-text-muted focus:ring-0 truncate bg-transparent" placeholder="Add dates" type="text"/>
+</div>
+<div class="flex-1 px-4">
+<label class="block text-xs font-bold text-text-main">Who</label>
+<input class="w-full border-none p-0 text-sm placeholder:text-text-muted focus:ring-0 truncate bg-transparent" placeholder="Add guests" type="text"/>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full bg-primary text-black hover:bg-primary-dark transition-colors">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+</div>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-4">
+<a class="hidden lg:block text-sm font-semibold hover:bg-gray-100 px-4 py-2 rounded-full transition-colors" href="#">Host your camp</a>
+<button class="flex items-center gap-1 text-text-main hover:bg-gray-100 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined">language</span>
+</button>
+<button class="flex items-center gap-2 border border-[#e5eadd] rounded-full p-1 pl-3 hover:shadow-md transition-shadow bg-white">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+<div class="bg-text-main text-white rounded-full p-1">
+<span class="material-symbols-outlined text-[20px] block">person</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Mobile Search Bar (visible only on small screens) -->
+<div class="md:hidden px-4 pb-3">
+<div class="flex items-center gap-2 w-full rounded-full border border-[#e5eadd] bg-white px-4 py-2.5 shadow-sm">
+<span class="material-symbols-outlined text-text-main">search</span>
+<div class="flex flex-col">
+<span class="text-sm font-semibold">Where to?</span>
+<span class="text-xs text-text-muted">Anywhere • Any week • Add guests</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-8 py-6">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap items-center gap-2 text-sm text-text-muted mb-6">
+<a class="hover:text-text-main hover:underline decoration-primary decoration-2 underline-offset-4" href="#">Egypt</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-text-main hover:underline decoration-primary decoration-2 underline-offset-4" href="#">South Sinai</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-text-main font-semibold">Nuweiba &amp; Ras Shetan</span>
+</div>
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Filters Sidebar -->
+<aside class="hidden lg:block w-80 shrink-0 space-y-8 h-fit sticky top-28">
+<!-- Map Toggle -->
+<div class="relative h-24 w-full overflow-hidden rounded-xl border border-gray-200 group cursor-pointer">
+<img class="h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-105" data-alt="Map view background" data-location="South Sinai Map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlPE4sRa6RE8mEf8FECYut4d5YIii9fEakX6ycScj_vJcdMcFYnUhiKuUEMGQlt2Vo7-xde5DKRh1gs7Dyc0yPEkWcT5UFUaHIi3ZIiaa4PYQKuUgnJQ2Uym6WRjO7VMJ7CivL07wnMS7TXaPa9thnE8TYhIGI5qsNc-eO9uC0o1iiJHO9LEiQDrHtD2ZdijNUTWPBtRcjQ0z5u79rzf1osWQPWVagrNlFgQNntm22emNzDJUlauuJ2in8NlWOkzgn-Nk3I7Tky0g"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/20 transition-colors">
+<button class="bg-white text-text-main px-4 py-2 rounded-lg text-sm font-bold shadow-lg flex items-center gap-2">
+                                Show map
+                                <span class="material-symbols-outlined text-[18px]">map</span>
+</button>
+</div>
+</div>
+<!-- Price Filter -->
+<div class="border-b border-gray-200 pb-6">
+<h3 class="text-lg font-bold mb-4">Price range</h3>
+<div class="px-2">
+<div class="relative h-12 w-full flex items-center">
+<div class="absolute w-full h-1 bg-gray-200 rounded"></div>
+<div class="absolute h-1 bg-primary rounded left-[10%] right-[30%]"></div>
+<div class="absolute left-[10%] size-6 bg-white border border-gray-300 shadow-md rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[14px]">drag_handle</span>
+</div>
+<div class="absolute right-[30%] size-6 bg-white border border-gray-300 shadow-md rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[14px]">drag_handle</span>
+</div>
+</div>
+<div class="flex justify-between items-center gap-4 mt-2">
+<div class="border border-gray-300 rounded-lg px-3 py-1 w-full">
+<span class="text-xs text-text-muted block">Min</span>
+<span class="text-sm font-medium">EGP 400</span>
+</div>
+<span class="text-gray-400">-</span>
+<div class="border border-gray-300 rounded-lg px-3 py-1 w-full">
+<span class="text-xs text-text-muted block">Max</span>
+<span class="text-sm font-medium">EGP 3000+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Type of Place -->
+<div class="border-b border-gray-200 pb-6">
+<h3 class="text-lg font-bold mb-4">Type of place</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main group-hover:text-primary-dark transition-colors">Traditional Camp</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main group-hover:text-primary-dark transition-colors">Eco-Lodge (Husha)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main group-hover:text-primary-dark transition-colors">Glamping Dome</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main group-hover:text-primary-dark transition-colors">Private Tent</span>
+</label>
+</div>
+</div>
+<!-- Amenities -->
+<div class="border-b border-gray-200 pb-6">
+<h3 class="text-lg font-bold mb-4">Amenities</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main">Wifi</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main">Sea View</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main">Breakfast Included</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main">Pet Friendly</span>
+</label>
+</div>
+<button class="mt-3 text-sm font-semibold underline decoration-2 decoration-gray-300 hover:decoration-text-main underline-offset-4">Show more</button>
+</div>
+<!-- Activities -->
+<div class="pb-6">
+<h3 class="text-lg font-bold mb-4">Activities</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main">Snorkeling &amp; Diving</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main">Hiking</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-text-main">Bedouin Dinner</span>
+</label>
+</div>
+</div>
+</aside>
+<!-- Listing Grid -->
+<div class="flex-1">
+<!-- Page Heading & Sort -->
+<div class="mb-6">
+<h1 class="text-3xl font-black tracking-tight text-text-main mb-2">Stays in South Sinai</h1>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<p class="text-text-muted">42 campsites found · <span class="font-medium text-text-main">Oct 14 - 20</span></p>
+<button class="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 text-sm font-bold hover:border-black transition-colors w-fit">
+                                Sort by: Recommended
+                                <span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Horizontal Filters (Mobile/Tablet) -->
+<div class="lg:hidden flex gap-3 overflow-x-auto hide-scrollbar mb-6 pb-2">
+<button class="whitespace-nowrap flex items-center gap-2 border border-gray-300 rounded-full px-4 py-2 text-sm font-medium">
+<span class="material-symbols-outlined text-[18px]">tune</span> Filters
+                        </button>
+<button class="whitespace-nowrap border border-gray-300 rounded-full px-4 py-2 text-sm font-medium">Price</button>
+<button class="whitespace-nowrap border border-gray-300 rounded-full px-4 py-2 text-sm font-medium">Type of place</button>
+<button class="whitespace-nowrap border border-gray-300 rounded-full px-4 py-2 text-sm font-medium">Amenities</button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Traditional tent camping under starry night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjZTG48QRAGApuXtX4Ozt7wShBqg4kxrycxtuB4_dVY7f2Y2HTLdIYeXsUWf1pl2zYp_UH_-vZzsBBRU7Mzc5fUfUTMS3VGYFj_AYyhWxr-zFRw3g0GKvLqJtVZOcfDxQkcqbftdPK574k3SCz9t0w1dhQOvA6RoSCUI14kdFIadXXuyHvZvrimhEX1z5KhFlSs2ugqfzc3bgmvCtkQzvSE6yO4CgJ37wNqd32VAB-8GY_YwWQVf14lrISfffOYLjryJbK8W_8TWU"/>
+<div class="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-md text-xs font-bold shadow-sm">
+                                    Guest Favorite
+                                </div>
+<button class="absolute top-3 right-3 text-white/70 hover:text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 600;">favorite</span>
+</button>
+<div class="absolute bottom-3 right-3">
+<button class="bg-white/90 hover:bg-white text-black p-2 rounded-full shadow-lg transition-colors">
+<span class="material-symbols-outlined text-[20px] block">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary-dark transition-colors">Basata Eco-Lodge</h3>
+<div class="flex items-center gap-1 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        4.92
+                                    </div>
+</div>
+<p class="text-text-muted text-sm">Nuweiba • Beachfront Husha</p>
+<p class="text-text-muted text-sm">Oct 14-20</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="font-bold text-text-main">EGP 1,200</span>
+<span class="text-text-main">/ night</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Cozy camping setup with string lights in desert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkUvOEIKBNvlZpIbqAHYWzNsiWBoOmqHJWzZSHdA4kODgu8YxLYp09Le7LBQrlKQDjOw6cF_6ReWlaAF9q8fXbq02957M3gSFSCtiM3RFvw74wNaxMS2-vtvtM4FB7p_3h9H2JBMxR1Fso6wyn_oxvjUG0ARAwmracJfSzfHlFvLHe10hvHCVTNcr2W4iwbF8DpoSMeRbugMcXOi2A7N_mtozu1KYLpXRKBeznuLRwZZ-rKXKp_gvg4ng5iAvI6x6VIdyBlScvrK0"/>
+<button class="absolute top-3 right-3 text-white/70 hover:text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 600;">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary-dark transition-colors">Dayra Camp</h3>
+<div class="flex items-center gap-1 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        4.85
+                                    </div>
+</div>
+<p class="text-text-muted text-sm">Nuweiba • Air Conditioned Bungalow</p>
+<p class="text-text-muted text-sm">Oct 14-20</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="font-bold text-text-main">EGP 1,800</span>
+<span class="text-text-main">/ night</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Canvas tent with sea view and mountains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxeSAdYoMsHmedA5VALbOtQQ5xSadgYtREQDGLZvoyYTajdq0GwCiMfH9JwKj7-TjoLq3x0aFTtz7Ym_2X2uB4pUTx4nEZfYWrFOrtS78c5cMpETYrgRh7u2V0ZHOj2o_xRbAuHZgg3N2L4cT2UPoo9PhsKg3QkkUBODpTpNtHGdvZlWIk2Ex_HW_u_OHu6kqs9OviLiOPdAolX2LCcjrmZ4v4CWjZeEjogsbt1t9cmtrzyGXeLgl-ckaDjGA_WgTmTUdCuykuiUs"/>
+<div class="absolute top-3 left-3 bg-primary/90 text-black px-2 py-1 rounded-md text-xs font-bold shadow-sm">
+                                    Rare Find
+                                </div>
+<button class="absolute top-3 right-3 text-white/70 hover:text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 600;">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary-dark transition-colors">RockSea Camp</h3>
+<div class="flex items-center gap-1 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        4.98
+                                    </div>
+</div>
+<p class="text-text-muted text-sm">Ras Shetan • Private Reef Access</p>
+<p class="text-text-muted text-sm">Oct 15-22</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="font-bold text-text-main">EGP 950</span>
+<span class="text-text-main">/ night</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Basic tent on sandy beach at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq22X54doy81h0YGMYl3cJ7ZueustwjnMRnXSk_oYKO6Obh3ZUxEpREd4xmaNSAq0YO8AmV8wgZG6bn7LYctFHCQXOqYqxYth_eRzLmCC6TdP5nhif7um7xS69IlgUiQxWiwabHnNQlhZWIBrPEKbSn0YOEXcdnlvoRgs9x9bcLZ1ZxwBIeRHv6BYfYnqFW2LbunjMSga6n0NC9RN1pgeHjWZe1zhmClTfHrIzPAwKGfQR9igNQAujSEwZGYmS-42gIUo09yL93U4"/>
+<button class="absolute top-3 right-3 text-white/70 hover:text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 600;">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary-dark transition-colors">Moon Island</h3>
+<div class="flex items-center gap-1 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        4.75
+                                    </div>
+</div>
+<p class="text-text-muted text-sm">Ras Shitan • Simple Beach Hut</p>
+<p class="text-text-muted text-sm">Oct 14-19</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="font-bold text-text-main">EGP 500</span>
+<span class="text-text-main">/ night</span>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern glamping dome in desert oasis" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVaWUuYhPy0GsD1yMr9zKXZO5SZu7IXuKoWu-cJdyCCspsrf3-WSQxkJ_yUAtZDswhZMhRoC8uC6XUQ4aZoDz0P_iF43tI_2cXnxs5p_Xfh4rWEJJseynZ3YtnFztDAOScoRC0Pe85Q49auuJd0UyqStUTTUapnxF5WInEOcVxikUWnyK446i2lfZ40IJtrmdQT_ShxOqoWmm5mMqg8F0LRRb3FdEBZyZAx0rnAmuDGmi8gaSSwr2E88GytpXO34LAg-A46zIt3nc"/>
+<button class="absolute top-3 right-3 text-white/70 hover:text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 600;">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary-dark transition-colors">Siwa Relax Retreat</h3>
+<div class="flex items-center gap-1 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        5.0
+                                    </div>
+</div>
+<p class="text-text-muted text-sm">Siwa Oasis • Luxury Tent • Pool</p>
+<p class="text-text-muted text-sm">Nov 01-05</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="font-bold text-text-main">EGP 2,500</span>
+<span class="text-text-main">/ night</span>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group flex flex-col gap-3">
+<div class="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100">
+<img class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Camping spot near canyon walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXBDGu_LkEHbvqolFi6SGTDd829Q5LRNmO0LMYtQVEft02zw4O_fntY94aHngN0ukRoEG_5ZAs-sVQEE0QdPv4efFtmoSgGy8qYvlEq-toHM4bbXngwzg16WLwAoFkznSBzNQJqTOMxvHw4U2OGy9DnuJkzJsXB3fd1Mcfh6EqIyLHih2lYzh8y3W1ahJP3nP0SXlk0KFYRwjQJOVST43FqLqQfOOgZopT6_pB8z_eFDTMCHCSyACnNTqlG4TMfe_e2WXoTQp2_lw"/>
+<button class="absolute top-3 right-3 text-white/70 hover:text-white hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0, 'wght' 600;">favorite</span>
+</button>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-lg leading-tight group-hover:text-primary-dark transition-colors">Colored Canyon Camp</h3>
+<div class="flex items-center gap-1 text-sm font-bold">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                        4.60
+                                    </div>
+</div>
+<p class="text-text-muted text-sm">Nuweiba • Hiking base</p>
+<p class="text-text-muted text-sm">Oct 20-22</p>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="font-bold text-text-main">EGP 700</span>
+<span class="text-text-main">/ night</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination / Load More -->
+<div class="mt-16 flex flex-col items-center justify-center gap-4">
+<p class="text-sm text-text-muted">Showing 6 of 42 properties</p>
+<div class="h-1 w-48 bg-gray-200 rounded-full overflow-hidden">
+<div class="h-full w-1/6 bg-primary"></div>
+</div>
+<button class="mt-2 px-8 py-3 bg-black text-white font-bold rounded-lg hover:bg-black/80 hover:scale-105 transition-all">
+                            Show more
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Simplified) -->
+<footer class="border-t border-gray-200 bg-gray-50 mt-12 py-8">
+<div class="max-w-[1440px] mx-auto px-4 md:px-8 text-sm text-text-muted flex flex-col md:flex-row justify-between items-center gap-4">
+<p>© 2023 Kheyma, Inc.</p>
+<div class="flex gap-6">
+<a class="hover:underline" href="#">Privacy</a>
+<a class="hover:underline" href="#">Terms</a>
+<a class="hover:underline" href="#">Sitemap</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

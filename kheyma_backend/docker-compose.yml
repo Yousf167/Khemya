@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: kheyma-mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: kheyma_db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - kheyma-network
+
+  eureka-server:
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    container_name: kheyma-eureka
+    ports:
+      - "8761:8761"
+    networks:
+      - kheyma-network
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: kheyma-gateway
+    ports:
+      - "8085:8080"
+    depends_on:
+      - eureka-server
+    networks:
+      - kheyma-network
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+
+  kheyma-service:
+    build:
+      context: ./kheyma-service
+      dockerfile: Dockerfile
+    container_name: kheyma-app
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongodb
+      - eureka-server
+    networks:
+      - kheyma-network
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://admin:admin123@mongodb:27017/kheyma_db?authSource=admin
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+
+networks:
+  kheyma-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kheyma - Forgot Password</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec37",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "surface-dark": "#1c2e1f",
+                        "border-dark": "#2f4532",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen flex flex-col relative overflow-hidden text-[#111812] dark:text-white">
+<!-- Background Image Layer -->
+<div class="absolute inset-0 z-0">
+<img alt="Starry night sky over a desert camping landscape with dunes" class="w-full h-full object-cover" data-alt="Starry night sky over a desert camping landscape with dunes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFAhqhJ82U5WXPuqzlH79cSJVMfkxb5whV9-l67QRPH8AMzDX-x75HgP5t4kpL0ZX4faeSbKskD4xV4_FDBRDNlpWPxlSm9UD6UtgA7n6uZ6IBUT5khNA6SkgvTRcdVbjfSPeAzcDh7sC__AFqUsd0fhghf1d0a6XDa9QMw2TykPAfGi6yV7YksIRHToIwCu7IL8Emalnnm6qSeGKmXK7oq95iv9Pgs6S3evPzfZnuijDEELMgV4A9ft1pts3Os3WVmLIG2WdLLrk"/>
+<!-- Dark Overlay for contrast -->
+<div class="absolute inset-0 bg-[#102213]/85 dark:bg-[#050b06]/85 backdrop-blur-[2px]"></div>
+</div>
+<!-- Main Layout Container -->
+<div class="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-12 sm:px-6 lg:px-8 w-full">
+<!-- Auth Card -->
+<div class="w-full max-w-md space-y-8 bg-surface-dark/95 backdrop-blur-md border border-border-dark p-8 sm:p-10 rounded-2xl shadow-2xl animate-fade-in-up">
+<!-- Header Section: Logo & Title -->
+<div class="flex flex-col items-center text-center">
+<!-- Logo -->
+<div class="mb-6 inline-flex items-center justify-center size-12 rounded-full bg-primary/10 text-primary">
+<svg class="size-8" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-3xl font-bold tracking-tight text-white">
+                    Forgot your password?
+                </h2>
+<p class="mt-3 text-base text-[#9db9a1]">
+                    Don't worry, it happens. Enter the email address associated with your account and we'll send you a link to reset it.
+                </p>
+</div>
+<!-- Form Section -->
+<form action="#" class="mt-8 space-y-6" method="POST">
+<div class="space-y-4">
+<div class="relative group">
+<label class="block text-sm font-medium leading-6 text-white mb-2" for="email-address">
+                            Email Address
+                        </label>
+<div class="relative">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-[#9db9a1]">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<input autocomplete="email" class="block w-full rounded-lg border-0 py-3.5 pl-11 pr-4 text-white shadow-sm ring-1 ring-inset ring-[#3b543f] bg-[#101a11]/50 placeholder:text-[#5e7a62] focus:ring-2 focus:ring-inset focus:ring-primary sm:text-base sm:leading-6 transition-all duration-200" id="email-address" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+</div>
+</div>
+<div>
+<button class="group relative flex w-full justify-center rounded-lg bg-primary px-4 py-3.5 text-base font-bold text-[#111812] hover:bg-[#34f052] hover:shadow-lg hover:shadow-primary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-200" type="button">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3">
+<span aria-hidden="true" class="material-symbols-outlined h-5 w-5 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+                        Send Reset Link
+                    </button>
+</div>
+</form>
+<!-- Footer Links -->
+<div class="text-center">
+<p class="text-sm text-[#9db9a1]">
+                    Remember your password? 
+                    <a class="font-semibold text-primary hover:text-white transition-colors duration-200 flex items-center justify-center gap-1 mt-2" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                        Back to Login
+                    </a>
+</p>
+</div>
+</div>
+<!-- Optional Footer note -->
+<p class="mt-8 text-center text-xs text-white/40 z-10">
+            © 2024 Kheyma. All rights reserved.
+        </p>
+</div>
+</body></html>
